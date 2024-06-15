@@ -3,6 +3,7 @@ import './App.scss';
 import { BrowserRouter, Link, Outlet, Route, Routes } from 'react-router-dom';
 import AppNavbar from './components/navbar/Nav';
 import { AppRoutes } from './const/routes.const';
+import { content } from './content/content';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
               <Outlet />
             </>
           }>
-            <Route path={AppRoutes.HOME} element={<div>home</div>} />
+            <Route path={AppRoutes.HOME} element={<div>{content.hello}</div>} />
             <Route path={AppRoutes.SPELLS} element={<div>spells</div>} />
             <Route path={AppRoutes.EQUIPMENT} element={<div>equipment</div>} />
             <Route path={AppRoutes.RANDOM.SPELLS} element={<div>random spells</div>} />
