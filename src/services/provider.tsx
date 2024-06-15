@@ -1,4 +1,4 @@
-import { SpellApi } from "./data-query/spell.api";
+import { SpellApi } from "./api/spell.api";
 
 const provider = {
   spellApi: new SpellApi()
