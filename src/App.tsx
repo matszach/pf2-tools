@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.scss';
-import { Button } from 'react-bootstrap';
 import { BrowserRouter, Link, Outlet, Route, Routes } from 'react-router-dom';
+import AppNavbar from './components/navbar/Nav';
+import { AppRoutes } from './const/routes.const';
 
 function App() {
   return (
@@ -10,26 +11,17 @@ function App() {
         <Routes>
           <Route path="/" element={
             <>
-              {/* <nav>
-                <ul>
-                  <li>
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/test-1">Test 1</Link>
-                  </li>
-                  <li>
-                    <Link to="/test-2">Test 2</Link>
-                  </li>
-                </ul>
-              </nav> */}
+              <AppNavbar></AppNavbar>
               <Outlet />
             </>
           }>
-            <Route index element={<div>index</div>} />
-            <Route path="/test-1" element={<div>test-1</div>} />
-            <Route path="/test-2" element={<div>test-2</div>} />
-            <Route path="/*" element={<div>not found</div>} />
+            <Route path={AppRoutes.HOME} element={<div>home</div>} />
+            <Route path={AppRoutes.SPELLS} element={<div>spells</div>} />
+            <Route path={AppRoutes.EQUIPMENT} element={<div>equipment</div>} />
+            <Route path={AppRoutes.RANDOM.SPELLS} element={<div>random spells</div>} />
+            <Route path={AppRoutes.RANDOM.LOOT} element={<div>random loot</div>} />
+            <Route path={AppRoutes.RANDOM.SHOP} element={<div>random shop</div>} />
+            <Route path={AppRoutes.UNKNOWN} element={<div>not found</div>} />
           </Route>
         </Routes>
       </BrowserRouter>
