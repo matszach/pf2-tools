@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Outlet, Route, Routes } from 'react-router-dom';
 import AppNavbar from './components/navbar/Nav';
 import { AppRoutes } from './const/routes.const';
 import { content } from './content/content';
+import { query } from './services/query/query.provider';
 
 function App() {
   return (
@@ -16,13 +17,30 @@ function App() {
               <Outlet />
             </>
           }>
-            <Route path={AppRoutes.HOME} element={<div>{content.hello}</div>} />
-            <Route path={AppRoutes.SPELLS} element={<div>spells</div>} />
-            <Route path={AppRoutes.EQUIPMENT} element={<div>equipment</div>} />
-            <Route path={AppRoutes.RANDOM.SPELLS} element={<div>random spells</div>} />
-            <Route path={AppRoutes.RANDOM.LOOT} element={<div>random loot</div>} />
-            <Route path={AppRoutes.RANDOM.SHOP} element={<div>random shop</div>} />
-            <Route path={AppRoutes.UNKNOWN} element={<div>not found</div>} />
+            <Route path={AppRoutes.HOME} element={
+              <div>{content.hello}</div>
+            }/>
+            <Route path={AppRoutes.SPELLS} element={
+              <div>
+                {content.workInProgress}
+                {query.spell.get().map(spell => <div key={spell.name}>{spell.name}</div>)}
+              </div>
+            }/>
+            <Route path={AppRoutes.EQUIPMENT} element={
+              <div>{content.workInProgress}</div>
+            }/>
+            <Route path={AppRoutes.RANDOM.SPELLS} element={
+              <div>{content.workInProgress}</div>
+            }/>
+            <Route path={AppRoutes.RANDOM.LOOT} element={
+              <div>{content.workInProgress}</div>
+            }/>
+            <Route path={AppRoutes.RANDOM.SHOP} element={
+              <div>{content.workInProgress}</div>
+            }/>
+            <Route path={AppRoutes.UNKNOWN} element={
+              <div>{content.notFound}</div>
+            }/>
           </Route>
         </Routes>
       </BrowserRouter>
