@@ -3,12 +3,10 @@ import './SpellsPage.scss';
 import SpellsPreviewTable from './SpellsPreviewTable';
 import { Spell } from '../../model/spell.model';
 import provider from '../../services/provider';
-import { levelRange, nameIncludes, page } from '../../services/api/rules';
+import { byLevel, levelRange, nameIncludes, page } from '../../services/api/rules';
 
 function SpellsPage() {
 
-  const [filterRules, setFilterRules] = useState([]);
-  const [sortRules, setSortRules] = useState([]);
   const [spells, setSpells] = useState<Spell[]>([]);
 
   useEffect(() => {
@@ -16,6 +14,9 @@ function SpellsPage() {
       filter: [
         nameIncludes('ray'),
         levelRange(1, 5)
+      ],
+      sort: [
+        byLevel()
       ],
       page: page(20, 0)
     }).then(setSpells)

@@ -29,7 +29,15 @@ export class PseudoDataApi<T> {
       })
       .then((data) => {
         if (!!params.sort) {
-          return data; // todo
+          return data.sort((a, b) => {
+            for (const rule of params.sort || []) {
+              const result = rule(a, b);
+              if (result !== 0) {
+                return result;
+              }
+            }
+            return 0;
+          })
         }
         return data;
       })
