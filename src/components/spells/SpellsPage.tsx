@@ -3,29 +3,31 @@ import './SpellsPage.scss';
 import SpellsPreviewTable from './SpellsPreviewTable';
 import { Spell } from '../../model/spell.model';
 import provider from '../../services/provider';
-import { byLevel, levelRange, nameIncludes, page } from '../../services/api/rules';
+import { SpellQueryBuilder } from '../../services/query/spell-query-builder';
 
 function SpellsPage() {
 
   const [spells, setSpells] = useState<Spell[]>([]);
 
   useEffect(() => {
-    provider.spellApi.query({
-      filter: [
-        nameIncludes('ray'),
-        levelRange(1, 5)
-      ],
-      sort: [
-        byLevel()
-      ],
-      page: page(20, 0)
-    }).then(setSpells)
+    const query = new SpellQueryBuilder()
+      .page(90, 0)
+      .level(1, 3)
+      .traits(
+        ['fire', true],
+        ['focus', false]
+      )
+      .sortBy('level')
+      .build()
+    provider.spellApi.query(query).then(setSpells)
   })
 
   return (
     <div className='SpellsPage'>
-      <h1>Spells</h1>
+      {/* TODO query component */}
+      {/* TODO sort rules from table */}
       <SpellsPreviewTable spells={spells}></SpellsPreviewTable>
+      {/* TODO paginator */}
     </div>
   );
 }

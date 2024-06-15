@@ -1,4 +1,4 @@
-import { ApiQueryParameters } from "./api.model";
+import { ApiQueryParameters } from "../query/data-query.model";
 
 export class PseudoDataApi<T> {
 
@@ -19,7 +19,7 @@ export class PseudoDataApi<T> {
     }
   }
 
-  public query(params: ApiQueryParameters = {}): Promise<T[]> {
+  public query(params: ApiQueryParameters<T> = {}): Promise<T[]> {
     return this.fetchData()
       .then((data) => {
         if (!!params.filter) {
