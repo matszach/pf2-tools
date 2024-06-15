@@ -12,7 +12,7 @@ function SpellsPreviewTable({ spells }: { spells: Spell[] }) {
     <>
       <AppPaginator size={pageSize} total={spells.length} onPageChange={setPageNumber} />
       <Table striped bordered hover>
-        <thead>
+        <thead >
           <tr>
             <th>Name</th>
             <th>Level</th>

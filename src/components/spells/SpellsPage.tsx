@@ -11,14 +11,14 @@ function SpellsPage() {
 
   useEffect(() => {
     const query = new SpellQueryBuilder()
-      .name('a')
-      .level(1, 3)
-      .hasTraits('fire')
-      .notHasTraits('cantrip', 'focus')
-      .sortBy('level')
+      // .name('a')
+      // .level(1, 3)
+      // .hasTraits('ritual')
+      // .notHasTraits('cantrip', 'focus')
+      // .sortBy('level')
       .build()
     provider.spellApi.query(query).then(setSpells)
-  })
+  }, [])
 
   return (
     <div className='SpellsPage'>

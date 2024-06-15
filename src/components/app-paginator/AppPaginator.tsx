@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import "./AppPaginator.scss"
 import { Pagination } from "react-bootstrap"
 import { PAGINATOR_ELIPSIS, getPaginatorMiddleButtons } from "../../utils/calculation.util"
 
@@ -26,25 +27,27 @@ function AppPaginator(
   let middleItems = getPaginatorMiddleButtons(seletedPage, maxPage, 10)
 
   return (
-    <Pagination>
-      <Pagination.First onClick={() => setPage(1)}/>
-      <Pagination.Prev onClick={() => setPage(prevPage)}/>
-      {middleItems.map((page, index) => (
-        page === PAGINATOR_ELIPSIS ? (
-          <Pagination.Ellipsis key={`elipsis-${index}`} />
-        ) : (
-          <Pagination.Item 
-          key={page} 
-          active={page === seletedPage} 
-          onClick={() => setPage(page as number)}
-        >
-          {page}
-        </Pagination.Item>
-        )
-      ))}
-      <Pagination.Next onClick={() => setPage(nextPage)}/>
-      <Pagination.Last onClick={() => setPage(maxPage)}/>
-    </Pagination>
+    <div className="AppPaginator">
+      <Pagination>
+        <Pagination.First onClick={() => setPage(1)}/>
+        <Pagination.Prev onClick={() => setPage(prevPage)}/>
+        {middleItems.map((page, index) => (
+          page === PAGINATOR_ELIPSIS ? (
+            <Pagination.Ellipsis key={`elipsis-${index}`} />
+          ) : (
+            <Pagination.Item 
+              key={page} 
+              active={page === seletedPage} 
+              onClick={() => setPage(page as number)}
+          >
+              {page}
+            </Pagination.Item>
+          )
+        ))}
+        <Pagination.Next onClick={() => setPage(nextPage)}/>
+        <Pagination.Last onClick={() => setPage(maxPage)}/>
+      </Pagination>
+    </div>
   )
 }
 

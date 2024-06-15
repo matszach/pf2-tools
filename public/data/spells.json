@@ -1061,7 +1061,8 @@
     "castingTime": "2 hours",
     "traditions": [],
     "traits": [
-      "emotion"
+      "emotion",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -1360,7 +1361,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -1416,7 +1419,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -1603,7 +1608,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -2075,7 +2082,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -2421,7 +2430,8 @@
     "castingTime": "1 hour",
     "traditions": [],
     "traits": [
-      "linguistic"
+      "linguistic",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -2450,7 +2460,8 @@
       "primal"
     ],
     "traits": [
-      "incorporeal"
+      "incorporeal",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -2553,7 +2564,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -2646,7 +2659,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -2776,7 +2791,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "mental"
+      "mental",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -2843,7 +2859,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "mental"
+      "mental",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -2869,7 +2886,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -2898,7 +2917,8 @@
       "occult"
     ],
     "traits": [
-      "mental"
+      "mental",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -3042,7 +3062,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -3452,7 +3474,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -4087,7 +4111,8 @@
     "traditions": [],
     "traits": [
       "plant",
-      "void"
+      "void",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -4657,7 +4682,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "death"
+      "death",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -4997,7 +5023,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "water"
+      "water",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -5729,7 +5756,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -7650,7 +7679,9 @@
     },
     "castingTime": "7 days",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -7745,7 +7776,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -7922,7 +7955,9 @@
     },
     "castingTime": "4 hours",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "unique",
     "requirements": ""
   },
@@ -7948,7 +7983,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "prediction"
+      "prediction",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -7975,7 +8011,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "emotion"
+      "emotion",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": "rare powdered pigments in at least three different colors, worth a total of 50 gp"
@@ -8106,7 +8143,8 @@
     "traditions": [],
     "traits": [
       "curse",
-      "mental"
+      "mental",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -8420,7 +8458,8 @@
     "castingTime": "3 days",
     "traditions": [],
     "traits": [
-      "consecration"
+      "consecration",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -8447,7 +8486,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "illusion"
+      "illusion",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -8512,7 +8552,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -8708,7 +8750,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -8843,7 +8887,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -9109,7 +9155,8 @@
     "castingTime": "9 days",
     "traditions": [],
     "traits": [
-      "teleportation"
+      "teleportation",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -9167,7 +9214,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -9192,7 +9241,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -9218,7 +9269,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "unholy"
+      "unholy",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -9871,7 +9923,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -10948,7 +11002,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "unholy"
+      "unholy",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -11041,7 +11096,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -11454,7 +11511,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "unholy"
+      "unholy",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -12177,7 +12235,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -13511,7 +13571,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "unique",
     "requirements": ""
   },
@@ -13650,7 +13712,8 @@
       "consecration",
       "emotion",
       "fear",
-      "mental"
+      "mental",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -14925,7 +14988,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -14950,7 +15015,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -15238,7 +15305,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -16140,7 +16209,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "consecration"
+      "consecration",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -16652,7 +16722,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -17191,7 +17263,8 @@
     "castingTime": "1 week",
     "traditions": [],
     "traits": [
-      "illusion"
+      "illusion",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -17747,7 +17820,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -19487,7 +19562,8 @@
     "traditions": [],
     "traits": [
       "evil",
-      "polymorph"
+      "polymorph",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -19608,7 +19684,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -20109,7 +20187,8 @@
     "traits": [
       "consecration",
       "plant",
-      "poison"
+      "poison",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -20210,7 +20289,8 @@
     "traditions": [],
     "traits": [
       "curse",
-      "mental"
+      "mental",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -21022,7 +21102,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -21550,7 +21632,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -21925,7 +22009,8 @@
     "castingTime": "1 hour",
     "traditions": [],
     "traits": [
-      "fortune"
+      "fortune",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -22245,7 +22330,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -22596,7 +22683,9 @@
     },
     "castingTime": "4 hours",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -23634,7 +23723,8 @@
     "castingTime": "6 days",
     "traditions": [],
     "traits": [
-      "mental"
+      "mental",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -24421,7 +24511,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -24447,7 +24539,8 @@
     "castingTime": "7 days",
     "traditions": [],
     "traits": [
-      "attack"
+      "attack",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -25356,7 +25449,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "mental"
+      "mental",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -26371,7 +26465,8 @@
     "castingTime": "8 hours",
     "traditions": [],
     "traits": [
-      "healing"
+      "healing",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -27698,7 +27793,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "attack"
+      "attack",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -29225,7 +29321,8 @@
     "traditions": [],
     "traits": [
       "mental",
-      "possession"
+      "possession",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -29284,7 +29381,8 @@
     "castingTime": "1 hour",
     "traditions": [],
     "traits": [
-      "illusion"
+      "illusion",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -29311,7 +29409,8 @@
     "castingTime": "1 hour",
     "traditions": [],
     "traits": [
-      "teleportation"
+      "teleportation",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -29966,7 +30065,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "disease"
+      "disease",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -29997,7 +30097,8 @@
     "traits": [
       "beast",
       "consecration",
-      "vitality"
+      "vitality",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -30400,7 +30501,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -31308,7 +31411,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "mental"
+      "mental",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -31607,7 +31711,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "consecration"
+      "consecration",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -31977,7 +32082,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -32642,7 +32749,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "trial"
+      "trial",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -33398,7 +33506,8 @@
     "castingTime": "1 hour",
     "traditions": [],
     "traits": [
-      "teleportation"
+      "teleportation",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -33685,7 +33794,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "teleportation"
+      "teleportation",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": "planar key for the destination plane used as a locus"
@@ -33778,7 +33888,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -33876,7 +33988,8 @@
     "traits": [
       "plant",
       "vitality",
-      "wood"
+      "wood",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -34050,7 +34163,8 @@
     "castingTime": "7 days",
     "traditions": [],
     "traits": [
-      "curse"
+      "curse",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -34180,7 +34294,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "trial"
+      "trial",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -34471,7 +34586,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -35431,7 +35548,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -35966,7 +36085,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "unique",
     "requirements": ""
   },
@@ -36208,7 +36329,8 @@
     "castingTime": "1 hour",
     "traditions": [],
     "traits": [
-      "darkness"
+      "darkness",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -36378,7 +36500,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "evil"
+      "evil",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": "You must be an evil dragon"
@@ -36671,7 +36794,9 @@
     },
     "castingTime": "3 days",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -36796,7 +36921,9 @@
     },
     "castingTime": "4 hours",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -36854,7 +36981,9 @@
     },
     "castingTime": "4 hours",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -37226,7 +37355,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -37349,7 +37480,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "healing"
+      "healing",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -37951,7 +38083,9 @@
     },
     "castingTime": "2 hours",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -37977,7 +38111,8 @@
     "castingTime": "1 hour",
     "traditions": [],
     "traits": [
-      "teleportation"
+      "teleportation",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -38361,7 +38496,9 @@
     },
     "castingTime": "10 minutes",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -39668,7 +39805,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "trial"
+      "trial",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -41363,7 +41501,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "illusion"
+      "illusion",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -41392,7 +41531,8 @@
     "traits": [
       "air",
       "illusion",
-      "visual"
+      "visual",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -43254,7 +43394,8 @@
     "traditions": [],
     "traits": [
       "illusion",
-      "shadow"
+      "shadow",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -43537,7 +43678,8 @@
     "castingTime": "1 hour",
     "traditions": [],
     "traits": [
-      "polymorph"
+      "polymorph",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -44530,7 +44672,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "unique",
     "requirements": ""
   },
@@ -45569,7 +45713,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -45947,7 +46093,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -46392,7 +46540,8 @@
     "traits": [
       "auditory",
       "linguistic",
-      "mental"
+      "mental",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -46800,7 +46949,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "teleportation"
+      "teleportation",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -47226,7 +47376,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -47350,7 +47502,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "trial"
+      "trial",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -47377,7 +47530,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "fortune"
+      "fortune",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -48449,7 +48603,8 @@
     "castingTime": "4 hours",
     "traditions": [],
     "traits": [
-      "healing"
+      "healing",
+      "ritual"
     ],
     "rarity": "unique",
     "requirements": ""
@@ -49458,7 +49613,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -49840,7 +49997,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -49872,7 +50031,8 @@
       "attack",
       "auditory",
       "illusion",
-      "visual"
+      "visual",
+      "ritual"
     ],
     "rarity": "uncommon",
     "requirements": ""
@@ -51101,7 +51261,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -52001,7 +52163,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "uncommon",
     "requirements": ""
   },
@@ -52367,7 +52531,9 @@
     },
     "castingTime": "4 hours",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -52993,7 +53159,8 @@
     "castingTime": "1 day",
     "traditions": [],
     "traits": [
-      "trial"
+      "trial",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
@@ -53247,7 +53414,9 @@
     },
     "castingTime": "1 hour",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -53341,7 +53510,9 @@
     },
     "castingTime": "1 day",
     "traditions": [],
-    "traits": [],
+    "traits": [
+      "ritual"
+    ],
     "rarity": "rare",
     "requirements": ""
   },
@@ -53524,7 +53695,8 @@
     "castingTime": "7 days",
     "traditions": [],
     "traits": [
-      "teleportation"
+      "teleportation",
+      "ritual"
     ],
     "rarity": "rare",
     "requirements": ""
