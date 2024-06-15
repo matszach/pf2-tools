@@ -1,5 +1,5 @@
 import { Spell } from "../../model/spell.model";
-import { PseudoDataApi } from "./data-api.service";
+import { PseudoDataApi } from "./pseudo-data.api";
 
 export class SpellApi extends PseudoDataApi<Spell> {
 
