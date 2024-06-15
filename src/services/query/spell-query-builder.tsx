@@ -5,7 +5,7 @@ import { DataQueryBuilder } from "./data-query-builder";
 export class SpellQueryBuilder extends DataQueryBuilder<Spell> {
 
   public name(name: string): this {
-    this.registerFilter((spell) => spell.name === name);
+    this.registerFilter((spell) => spell.name.includes(name));
     return this;
   }
 
@@ -15,14 +15,16 @@ export class SpellQueryBuilder extends DataQueryBuilder<Spell> {
   }
 
   // TODO add a fake "ritual" trait to ritual spells in transformer
-  public traits(...traitDefs: Array<[string, boolean]>): this {
+  public hasTraits(...traits: string[]): this {
     this.registerFilter((spell) => {
-      for (const [trait, wanted] of traitDefs) {
-        if (spell.traits.includes(trait) !== wanted) {
-          return false;
-        }
-      }
-      return true;
+      return traits.every((trait) => spell.traits.includes(trait));
+    });
+    return this;
+  }
+
+  public notHasTraits(...traits: string[]): this {
+    this.registerFilter((spell) => {
+      return !traits.every((trait) => spell.traits.includes(trait));
     });
     return this;
   }

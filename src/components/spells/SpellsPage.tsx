@@ -11,12 +11,10 @@ function SpellsPage() {
 
   useEffect(() => {
     const query = new SpellQueryBuilder()
-      .page(90, 0)
+      .name('a')
       .level(1, 3)
-      .traits(
-        ['fire', true],
-        ['focus', false]
-      )
+      .hasTraits('fire')
+      .notHasTraits('cantrip', 'focus')
       .sortBy('level')
       .build()
     provider.spellApi.query(query).then(setSpells)
@@ -27,7 +25,6 @@ function SpellsPage() {
       {/* TODO query component */}
       {/* TODO sort rules from table */}
       <SpellsPreviewTable spells={spells}></SpellsPreviewTable>
-      {/* TODO paginator */}
     </div>
   );
 }

@@ -41,12 +41,6 @@ export class PseudoDataApi<T> {
         }
         return data;
       })
-      .then((data) => {
-        if (!!params.page) { // todo check if page size makes sense
-          return data.slice(params.page.offset * params.page.size, params.page.offset + params.page.size);
-        }
-        return data;
-      })
   }
 
 }

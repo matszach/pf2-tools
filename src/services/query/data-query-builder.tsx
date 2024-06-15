@@ -34,12 +34,6 @@ export class DataQueryBuilder<T> {
     return this;
   }
 
-  // ============================ paging ============================
-  public page(size: number = 20, offset: number = 0): this {
-    this.apiQuery.page = { size, offset };
-    return this;
-  }
-
   // ============================ build ============================
   public build(): ApiQueryParameters<T> {
     return this.apiQuery;
