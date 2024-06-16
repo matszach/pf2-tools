@@ -14,7 +14,7 @@ export const AppRoutes = {
 
 export function getNavLink(path: string): string {
   if (isLocal()) {
-    return path === '/' ? path : `/#${path}`
+    return `/#${path}`
   }
-  return path === '/pf2-tools/' ? path : `/pf2-tools/#${path}`
+  return `/pf2-tools/#${path}`
 }
