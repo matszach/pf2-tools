@@ -30,11 +30,11 @@ function AppPaginator(
   return (
     <div className="AppPaginator">
       <Pagination>
-        <Pagination.First onClick={() => setPage(1)}/>
-        <Pagination.Prev onClick={() => setPage(prevPage)}/>
+        <Pagination.First onClick={() => setPage(1)} disabled={seletedPage === 1}/>
+        <Pagination.Prev onClick={() => setPage(prevPage)} disabled={seletedPage === 1}/>
         {middleItems.map((page, index) => (
           page === PAGINATOR_ELIPSIS ? (
-            <Pagination.Ellipsis key={`elipsis-${index}`} />
+            <Pagination.Ellipsis key={`elipsis-${index}`} disabled/>
           ) : (
             <Pagination.Item 
               key={page} 
@@ -45,8 +45,8 @@ function AppPaginator(
             </Pagination.Item>
           )
         ))}
-        <Pagination.Next onClick={() => setPage(nextPage)}/>
-        <Pagination.Last onClick={() => setPage(maxPage)}/>
+        <Pagination.Next onClick={() => setPage(nextPage)} disabled={seletedPage === maxPage}/>
+        <Pagination.Last onClick={() => setPage(maxPage)} disabled={seletedPage === maxPage}/>
       </Pagination>
     </div>
   )
