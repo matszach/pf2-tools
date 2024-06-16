@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
 import AppNavbar from './components/navbar/Nav';
 import { AppRoutes } from './const/routes.const';
 import { content } from './content/content';
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <AppNavbar></AppNavbar>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path={AppRoutes.HOME} element={
             <div>{content.hello}</div>
@@ -34,7 +34,7 @@ function App() {
             <div>{content.notFound}</div>
           }/>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }

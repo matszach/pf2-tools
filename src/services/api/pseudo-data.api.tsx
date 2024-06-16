@@ -10,7 +10,7 @@ export class PseudoDataApi<T> {
     if (!!this.data) {
       return Promise.resolve(this.data);
     } else {
-      return fetch(this.source).then(
+      return fetch(process.env.PUBLIC_URL + this.source).then(
         data => data.json().then((data) => {
           this.data = data;
           return this.data as T[];

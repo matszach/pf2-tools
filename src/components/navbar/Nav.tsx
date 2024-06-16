@@ -9,13 +9,13 @@ function AppNavbar() {
         <Navbar.Toggle/>
         <Navbar.Collapse>
           <Nav>
-            <Nav.Link href={AppRoutes.HOME}>Home</Nav.Link>
-            <Nav.Link href={AppRoutes.SPELLS}>Spells</Nav.Link>
-            <Nav.Link href={AppRoutes.EQUIPMENT}>Equipment</Nav.Link>
+            <Nav.Link href={"/#" + AppRoutes.HOME}>Home</Nav.Link>
+            <Nav.Link href={"/#" + AppRoutes.SPELLS}>Spells</Nav.Link>
+            <Nav.Link href={"/#" + AppRoutes.EQUIPMENT}>Equipment</Nav.Link>
             <NavDropdown title="Random">
-              <NavDropdown.Item href={AppRoutes.RANDOM.SPELLS}>Spells</NavDropdown.Item>
-              <NavDropdown.Item href={AppRoutes.RANDOM.LOOT}>Loot</NavDropdown.Item>
-              <NavDropdown.Item href={AppRoutes.RANDOM.SHOP}>Shop</NavDropdown.Item>
+              <NavDropdown.Item href={"/#" + AppRoutes.RANDOM.SPELLS}>Spells</NavDropdown.Item>
+              <NavDropdown.Item href={"/#" + AppRoutes.RANDOM.LOOT}>Loot</NavDropdown.Item>
+              <NavDropdown.Item href={"/#" + AppRoutes.RANDOM.SHOP}>Shop</NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

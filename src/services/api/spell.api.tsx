@@ -4,7 +4,7 @@ import { PseudoDataApi } from "./pseudo-data.api";
 export class SpellApi extends PseudoDataApi<Spell> {
 
   constructor() {
-    super('./data/spells.json');
+    super('/data/spells.json');
   }
   
 }
