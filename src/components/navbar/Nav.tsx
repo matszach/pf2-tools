@@ -4,9 +4,11 @@ import { isLocal } from "../../utils/env.utils";
 
 function AppNavbar() {
 
-  const local = isLocal();
-
+  /**
+   * Workaround because bootstrap navlinks do not work with hashrouter
+   */
   function getNavLink(path: string): string {
+    const local = isLocal();
     return local ? `/#${path}` : `/pf2-tools/#${path}`;
   }
 

@@ -18,6 +18,9 @@ function App() {
           <Route path={AppRoutes.SPELLS} element={
             <SpellsView></SpellsView>
           }/>
+          <Route path={AppRoutes.SPELL_KEY} element={
+            <div>{window.location.hash}</div>
+          }/>
           <Route path={AppRoutes.EQUIPMENT} element={
             <div>{content.workInProgress}</div>
           }/>
