@@ -2,10 +2,11 @@ import { useEffect, useState } from "react"
 import "./AppPaginator.scss"
 import { Pagination } from "react-bootstrap"
 import { PAGINATOR_ELIPSIS, getPaginatorMiddleButtons } from "../../utils/calculation.util"
+import { Page } from "./page"
 
 function AppPaginator(
   { size, total, onPageChange }: 
-  { size: number, total: number, onPageChange: (page: number) => void }
+  { size: number, total: number, onPageChange: (page: Page) => void }
 ) {
 
   const [totalRecords] = useState(total)
@@ -13,7 +14,7 @@ function AppPaginator(
 
   const setPage = (page: number) => {
     setSelectedPage(page)
-    onPageChange(page)
+    onPageChange(new Page(size, page))
   }
 
   useEffect(() => {

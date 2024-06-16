@@ -4,7 +4,7 @@ import { BrowserRouter, Outlet, Route, Routes } from 'react-router-dom';
 import AppNavbar from './components/navbar/Nav';
 import { AppRoutes } from './const/routes.const';
 import { content } from './content/content';
-import SpellsPage from './components/spells/SpellsPage';
+import SpellsView from './components/spells/SpellsView';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
             <Route path={AppRoutes.HOME} element={
               <div>{content.hello}</div>
             }/>
-            <Route path={AppRoutes.SPELLS} element={<SpellsPage></SpellsPage>}/>
+            <Route path={AppRoutes.SPELLS} element={<SpellsView></SpellsView>}/>
             <Route path={AppRoutes.EQUIPMENT} element={
               <div>{content.workInProgress}</div>
             }/>
