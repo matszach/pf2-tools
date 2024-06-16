@@ -1,3 +1,18 @@
 .SpellsFilterPanel {
   margin-bottom: 1em;
+  .badge {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+    cursor: pointer;
+    margin: 0.25em;
+    transition-duration: 300ms;
+    transition-property: opacity;
+    &.bg-secondary {
+      opacity: 0.5;
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
 }

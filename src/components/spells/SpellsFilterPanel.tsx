@@ -9,14 +9,28 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
 
   const [name, setName] = useState<string>("");
   const [tradition, setTradition] = useState<string>("all");
-  const [traits, setTraits] = useState<[string, boolean][]>([]);
+  const [traits, setTraits] = useState<{ [trait: string]: number }>({});
 
   const toggleTrait = (trait: string) => {
-    
+    setTraits({
+      ...traits,
+      // toggle traits value from 1 to - 1 to 0 to 1 etc
+      // TODO make these into an enum
+      [trait]: traits[trait] === 1 ? -1 : traits[trait] === -1 ? 0 : 1
+    })
+  }
+
+  const getTraitColor = (trait: string) => {
+    if (traits[trait] === 1) {
+      return 'primary';
+    } else if (traits[trait] === -1) {
+      return 'danger';
+    }
+    return 'secondary';
   }
 
   useEffect(() => {
-    onFilter({ name, tradition });
+    onFilter({ name, tradition, traits });
   }, [name, tradition, traits])
 
   return (
@@ -51,7 +65,9 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
                   {/* option to reset, toggle match all / match any */}
                   {ALL_SPELL_TRAITS.map(trait => (
                     // primary for on, danger for off, secomdnary default
-                    <Badge className="m-1" bg="secondary" key={trait}>{capitalize(trait)}</Badge>
+                    <Badge bg={getTraitColor(trait)} key={trait} onClick={() => toggleTrait(trait)}>
+                      {capitalize(trait)}
+                    </Badge>
                   ))}
                 </Accordion.Body>
               </Accordion.Item>

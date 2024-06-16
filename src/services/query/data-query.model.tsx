@@ -11,7 +11,7 @@ export interface SpellQueryFilterParameters {
   name?: string;
   tradition?: string;
   level?: [number, number];
-  traits?: [string, boolean][];
+  traits?: { [trait: string]: number };
 }
 
 export interface SpellQuerySortParameters {

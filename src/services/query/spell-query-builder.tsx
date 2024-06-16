@@ -15,17 +15,13 @@ export class SpellQueryBuilder extends DataQueryBuilder<Spell> {
     return this
   }
 
-  public hasTraits(...traits: string[]): this {
-    this.registerFilter((spell) => {
-      return traits.every((trait) => spell.traits.includes(trait))
-    })
+  public hasTrait(traits: string): this {
+    this.registerFilter((spell) => spell.traits.includes(traits))
     return this
   }
 
-  public notHasTraits(...traits: string[]): this {
-    this.registerFilter((spell) => {
-      return !traits.every((trait) => spell.traits.includes(trait))
-    })
+  public notHasTrait(traits: string): this {
+    this.registerFilter((spell) => !spell.traits.includes(traits))
     return this
   }
 
@@ -42,6 +38,15 @@ export class SpellQueryBuilder extends DataQueryBuilder<Spell> {
     }
     if (filterParams.tradition && filterParams.tradition !== "all") {
       this.inTraditions(filterParams.tradition)
+    }
+    if (filterParams.traits) {
+      for (const trait in filterParams.traits) {
+        if (filterParams.traits[trait] === 1) {
+          this.hasTrait(trait)
+        } else if (filterParams.traits[trait] === -1) {
+          this.notHasTrait(trait)
+        }
+      }
     }
     if (sortParams.field) {
       this.sortBy(sortParams.field, sortParams.direction)

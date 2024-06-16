@@ -44,7 +44,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
         {spells.map((spell) => (
           <tr key={spell.key} onClick={() => {
             const url = AppRoutes.SPELL_KEY.replace(':key', spell.key || 'NOT_FOUND')
-            navigate(url)
+            navigate(url) // TODO make it open a new window OR remember the query settings
           }}>
             <td>{spell.name}</td>
             <td>{spell.level}</td>
