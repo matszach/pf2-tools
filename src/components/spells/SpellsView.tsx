@@ -19,6 +19,10 @@ function SpellsView() {
     provider.spellApi.query(query).then(setSpells)
   }, [query])
 
+  useEffect(() => {
+    setPage(new Page(pageSize, 1)) // works as a temp fix (need to still fix visual)
+  }, [query])
+
   // TODO fix the weird paginator behaviour
   return (
     <div className='SpellsView'>
