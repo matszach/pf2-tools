@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pf2-tools/static/css/main.feafbd8f.css",
+    "main.js": "/pf2-tools/static/js/main.eb72163f.js",
+    "index.html": "/pf2-tools/index.html",
+    "main.feafbd8f.css.map": "/pf2-tools/static/css/main.feafbd8f.css.map",
+    "main.eb72163f.js.map": "/pf2-tools/static/js/main.eb72163f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.feafbd8f.css",
+    "static/js/main.eb72163f.js"
+  ]
+}
