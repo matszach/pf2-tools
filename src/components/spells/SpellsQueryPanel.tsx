@@ -34,6 +34,7 @@ function SpellsQueryPanel({ onQuery }: { onQuery: (query: ApiQueryParameters<Spe
           <Col>
             <Form.Group className="mb-3" controlId="name">
               <Form.Label>Name</Form.Label>
+              {/* change it to spellName so that remebered names from formdont trigger */}
               <Form.Control type="text" name="name"/>
             </Form.Group>
           </Col>
