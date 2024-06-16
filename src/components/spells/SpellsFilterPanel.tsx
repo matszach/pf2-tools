@@ -1,18 +1,23 @@
 import './SpellsFilterPanel.scss';
 import { useEffect, useState } from "react";
-import { ALL_SPELL_TRADITIONS, Spell } from "../../model/spell.model";
+import { ALL_SPELL_TRADITIONS, ALL_SPELL_TRAITS } from "../../model/spell.model";
 import { SpellQueryFilterParameters } from "../../services/query/data-query.model";
-import { Accordion, Col, Form, Row } from "react-bootstrap";
+import { Accordion, Badge, Col, Form, Row } from "react-bootstrap";
 import { capitalize } from "../../utils/format.util";
 
 function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFilterParameters) => void }) {
 
   const [name, setName] = useState<string>("");
   const [tradition, setTradition] = useState<string>("all");
+  const [traits, setTraits] = useState<[string, boolean][]>([]);
+
+  const toggleTrait = (trait: string) => {
+    
+  }
 
   useEffect(() => {
     onFilter({ name, tradition });
-  }, [name, tradition])
+  }, [name, tradition, traits])
 
   return (
     <div className="SpellsFilterPanel">
@@ -43,7 +48,11 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Traits</Accordion.Header>
                 <Accordion.Body>
-                  TODO
+                  {/* option to reset, toggle match all / match any */}
+                  {ALL_SPELL_TRAITS.map(trait => (
+                    // primary for on, danger for off, secomdnary default
+                    <Badge className="m-1" bg="secondary" key={trait}>{capitalize(trait)}</Badge>
+                  ))}
                 </Accordion.Body>
               </Accordion.Item>
             </Accordion>
