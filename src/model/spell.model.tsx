@@ -21,7 +21,7 @@ export interface Spell {
   requirements: string;
 }
 
-export const ALL_TRAITS = [
+export const ALL_SPELL_TRAITS = [
   'acid', 'air', 'attack', 'auditory', 'aura', 'bard', 'beast', 'cantrip', 
   'champion', 'chaotic', 'cleric', 'cold', 'composition', 'concentrate', 
   'consecration', 'contingency', 'curse', 'cursebound', 'darkness', 'death', 
@@ -38,6 +38,6 @@ export const ALL_TRAITS = [
   'wizard', 'wood'
 ]
 
-export const ALL_TRADITIONS = [
+export const ALL_SPELL_TRADITIONS = [
   'arcane', 'divine', 'primal', 'occult'
 ]

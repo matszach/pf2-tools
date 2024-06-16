@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
-import { ALL_TRADITIONS, Spell } from "../../model/spell.model";
+import { ALL_SPELL_TRADITIONS, Spell } from "../../model/spell.model";
 import { ApiQueryParameters } from "../../services/query/data-query.model";
 import { SpellQueryBuilder } from "../../services/query/spell-query-builder";
 import { Col, Form, Row } from "react-bootstrap";
-import { SpellsQueryFormState } from "./spells-query-form-state.model";
- 
-function SpellsQueryPanel({ onQuery }: { onQuery: (query: ApiQueryParameters<Spell>) => void }) {
 
+interface SpellsQueryFormState {
+  name?: string;
+  minLevel?: number;
+  maxLevel?: number;
+  traits?: [string, boolean][],
+  traditions?: string[],
+}
+
+function SpellsQueryPanel({ onQuery }: { onQuery: (query: ApiQueryParameters<Spell>) => void }) {
 
   const [formState, setFormState] = useState<SpellsQueryFormState>({});
 
