@@ -43,7 +43,6 @@ export class SpellQueryBuilder extends DataQueryBuilder<Spell> {
     if (filterParams.tradition && filterParams.tradition !== "all") {
       this.inTraditions(filterParams.tradition)
     }
-    // TODO some weird things going on here, after switching a field it doenst seem to ort corrently initially
     if (sortParams.field) {
       this.sortBy(sortParams.field, sortParams.direction)
     }

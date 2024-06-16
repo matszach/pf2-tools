@@ -1,7 +1,8 @@
+import './SpellsFilterPanel.scss';
 import { useEffect, useState } from "react";
 import { ALL_SPELL_TRADITIONS, Spell } from "../../model/spell.model";
 import { SpellQueryFilterParameters } from "../../services/query/data-query.model";
-import { Col, Form, Row } from "react-bootstrap";
+import { Accordion, Col, Form, Row } from "react-bootstrap";
 import { capitalize } from "../../utils/format.util";
 
 function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFilterParameters) => void }) {
@@ -19,7 +20,8 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
         <Row>
           <Col>
             <Form.Group className="mb-3">
-              <Form.Label>Name</Form.Label>
+              {/* TODO floating label? */}
+              <Form.Label>Name</Form.Label> 
               <Form.Control type="text" onChange={e => setName(e.target.value)} />
             </Form.Group>
           </Col>
@@ -33,6 +35,18 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
                 ))}
               </Form.Select>
             </Form.Group>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Accordion>
+              <Accordion.Item eventKey="0">
+                <Accordion.Header>Traits</Accordion.Header>
+                <Accordion.Body>
+                  TODO
+                </Accordion.Body>
+              </Accordion.Item>
+            </Accordion>
           </Col>
         </Row>
       </Form>
