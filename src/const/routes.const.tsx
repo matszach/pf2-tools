@@ -1,3 +1,5 @@
+import { isLocal } from "../utils/env.utils"
+
 export const AppRoutes = {
   HOME: '/',
   SPELLS: '/spells',
@@ -8,4 +10,11 @@ export const AppRoutes = {
     SHOP: '/random/shop', 
   },
   UNKNOWN: '/*'
+}
+
+export function getNavLink(path: string): string {
+  if (isLocal()) {
+    return path === '/' ? path : `/#${path}`
+  }
+  return path === '/pf2-tools/' ? path : `/pf2-tools/#${path}`
 }
