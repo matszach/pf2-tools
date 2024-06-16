@@ -6,3 +6,15 @@ export interface ApiQueryParameters<T> {
   sort?: SortRule<T>[];
   filter?: FilterRule<T>[];
 }
+
+export interface SpellQueryFilterParameters {
+  name?: string;
+  tradition?: string;
+  level?: [number, number];
+  traits?: [string, boolean][];
+}
+
+export interface SpellQuerySortParameters {
+  field?: string;
+  direction?: number;
+}

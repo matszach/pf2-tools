@@ -4,29 +4,33 @@ import SpellsPreviewTable from './SpellsPreviewTable';
 import { Spell } from '../../model/spell.model';
 import provider from '../../services/provider';
 import AppPaginator from '../app-paginator/AppPaginator';
-import SpellsQueryPanel from './SpellsQueryPanel';
 import { Page } from '../app-paginator/page';
-import { ApiQueryParameters } from '../../services/query/data-query.model';
+import { SpellQueryBuilder } from '../../services/query/spell-query-builder';
+import SpellsFilterPanel from './SpellsFilterPanel';
+import { SpellQueryFilterParameters, SpellQuerySortParameters } from '../../services/query/data-query.model';
 
 function SpellsView() {
 
-  const [query, setQuery] = useState<ApiQueryParameters<Spell>>({});
+  const [filterParams, setFilterParams] = useState<SpellQueryFilterParameters>({});
+  const [sortParams, setSortParams] = useState<SpellQuerySortParameters>({});
   const [pageSize, _setPageSize] = useState<number>(15);
   const [page, setPage] = useState<Page>(new Page(pageSize, 1))
   const [spells, setSpells] = useState<Spell[]>([]);
 
   useEffect(() => {
+    const builder = new SpellQueryBuilder()
+    const query = builder.fromParams({ filterParams, sortParams }).build()
     provider.spellApi.query(query).then(setSpells)
-  }, [query])
+  }, [filterParams])
 
   useEffect(() => {
     setPage(new Page(pageSize, 1)) // works as a temp fix (need to still fix visual)
-  }, [query])
+  }, [filterParams])
 
   // TODO fix the weird paginator behaviour
   return (
     <div className='SpellsView'>
-      <SpellsQueryPanel onQuery={setQuery}/>
+      <SpellsFilterPanel onChange={setFilterParams}/>
       <AppPaginator size={pageSize} total={spells.length} onPageChange={setPage} />
       <SpellsPreviewTable spells={page.of(spells)}/>
     </div>

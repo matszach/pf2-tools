@@ -1,5 +1,6 @@
 import { Spell } from "../../model/spell.model";
 import { DataQueryBuilder } from "./data-query-builder";
+import { SpellQueryFilterParameters, SpellQuerySortParameters } from "./data-query.model";
 
 
 export class SpellQueryBuilder extends DataQueryBuilder<Spell> {
@@ -25,6 +26,24 @@ export class SpellQueryBuilder extends DataQueryBuilder<Spell> {
     this.registerFilter((spell) => {
       return !traits.every((trait) => spell.traits.includes(trait));
     });
+    return this;
+  }
+
+  public inTraditions(...traditions: string[]): this {
+    this.registerFilter((spell) => {
+      return spell.traditions.some((tradition) => traditions.includes(tradition));
+    });
+    return this;
+  }
+
+  public fromParams({ filterParams, sortParams }: { filterParams: SpellQueryFilterParameters, sortParams: SpellQuerySortParameters }): this {
+    console.log({ filterParams })
+    if (filterParams.name) {
+      this.name(filterParams.name);
+    }
+    if (filterParams.tradition && filterParams.tradition !== "all") {
+      this.inTraditions(filterParams.tradition);
+    }
     return this;
   }
 }
