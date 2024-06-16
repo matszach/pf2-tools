@@ -20,3 +20,24 @@ export interface Spell {
   rarity: string;
   requirements: string;
 }
+
+export const ALL_TRAITS = [
+  'acid', 'air', 'attack', 'auditory', 'aura', 'bard', 'beast', 'cantrip', 
+  'champion', 'chaotic', 'cleric', 'cold', 'composition', 'concentrate', 
+  'consecration', 'contingency', 'curse', 'cursebound', 'darkness', 'death', 
+  'detection', 'disease', 'dream', 'druid', 'earth', 'eidolon', 'electricity', 
+  'emotion', 'evil', 'extradimensional', 'fear', 'fire', 'focus', 
+  'force', 'fortune', 'fungus', 'good', 'healing', 'hex', 'holy', 'illusion', 
+  'incapacitation', 'incarnate', 'incorporeal', 'inhaled', 'lawful', 'light', 
+  'linguistic', 'litany', 'magus', 'manipulate', 'mental', 'metal', 'misfortune', 
+  'monk', 'morph', 'move', 'nonlethal', 'olfactory', 'oracle', 'plant', 'poison', 
+  'polymorph', 'possession', 'prediction', 'psychic', 'ranger', 'revelation', 
+  'ritual', 'sanctified', 'scrying', 'shadow', 'sleep', 'sonic', 'sorcerer', 
+  'spellshape', 'spirit', 'stance', 'subtle', 'summon', 'summoner', 'teleportation', 
+  'trial', 'true-name', 'unholy', 'visual', 'vitality', 'void', 'water', 'witch', 
+  'wizard', 'wood'
+]
+
+export const ALL_TRADITIONS = [
+  'arcane', 'divine', 'primal', 'occult'
+]
