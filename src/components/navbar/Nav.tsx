@@ -1,8 +1,15 @@
 import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
-import { AppRoutes, getNavLink } from "../../const/routes.const";
-import { Link } from "react-router-dom";
+import { AppRoutes } from "../../const/routes.const";
+import { isLocal } from "../../utils/env.utils";
 
 function AppNavbar() {
+
+  const local = isLocal();
+
+  function getNavLink(path: string): string {
+    return local ? `/#${path}` : `/pf2-tools/#${path}`;
+  }
+
   return (
     <Navbar expand="lg" className="bg-body-secondary">
       <Container>
