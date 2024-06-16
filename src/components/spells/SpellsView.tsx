@@ -11,17 +11,17 @@ import { SpellQueryFilterParameters, SpellQuerySortParameters } from '../../serv
 
 function SpellsView() {
 
-  const [filterParams, setFilterParams] = useState<SpellQueryFilterParameters>({});
-  const [sortParams, setSortParams] = useState<SpellQuerySortParameters>({});
-  const [pageSize, _setPageSize] = useState<number>(15);
+  const [filterParams, setFilterParams] = useState<SpellQueryFilterParameters>({})
+  const [sortParams, setSortParams] = useState<SpellQuerySortParameters>({})
+  const [pageSize, _setPageSize] = useState<number>(15)
   const [page, setPage] = useState<Page>(new Page(pageSize, 1))
-  const [spells, setSpells] = useState<Spell[]>([]);
+  const [spells, setSpells] = useState<Spell[]>([])
 
   useEffect(() => {
     const builder = new SpellQueryBuilder()
     const query = builder.fromParams({ filterParams, sortParams }).build()
     provider.spellApi.query(query).then(setSpells)
-  }, [filterParams])
+  }, [filterParams, sortParams])
 
   useEffect(() => {
     setPage(new Page(pageSize, 1)) // works as a temp fix (need to still fix visual)
@@ -30,11 +30,11 @@ function SpellsView() {
   // TODO fix the weird paginator behaviour
   return (
     <div className='SpellsView'>
-      <SpellsFilterPanel onChange={setFilterParams}/>
+      <SpellsFilterPanel onFilter={setFilterParams}/>
       <AppPaginator size={pageSize} total={spells.length} onPageChange={setPage} />
-      <SpellsPreviewTable spells={page.of(spells)}/>
+      <SpellsPreviewTable onSort={setSortParams} spells={page.of(spells)}/>
     </div>
   );
 }
 
-export default SpellsView;
+export default SpellsView

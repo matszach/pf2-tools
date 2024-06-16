@@ -1,21 +1,43 @@
+import './SpellsPreviewTable.scss';
 import { Table } from "react-bootstrap";
 import { Spell } from "../../model/spell.model";
 import { useNavigate } from "react-router-dom";
 import { AppRoutes } from "../../const/routes.const";
+import { SpellQuerySortParameters } from "../../services/query/data-query.model";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa"; 
+import { useEffect, useState } from "react";
 
-function SpellsPreviewTable({ spells }: { spells: Spell[] }) {
+function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sortParams: SpellQuerySortParameters) => void }) {
 
   const navigate = useNavigate();
+  const [sortParams, setSortParams] = useState<SpellQuerySortParameters>({})
+
+  const toggleSort = (field: string) => {
+    setSortParams({ 
+      field, 
+      direction: sortParams.field === field ? -(sortParams.direction ?? 1) : 1 
+    })
+  }
+
+  useEffect(() => {
+    onSort(sortParams)
+  }, [sortParams])
 
   return (
-    <Table striped bordered hover>
-      <thead >
+    <Table className="SpellsPreviewTable" striped bordered hover>
+      <thead>
         <tr>
-          <th>Name</th>
-          <th>Level</th>
-          <th>Casting Time</th>
-          <th>Traditions</th>
-          <th>Traits</th>
+          {[
+            ['Name', 'name'],
+            ['Level', 'level'],
+            ['Casting Time', 'castingTime'],
+            ['Traditions', 'traditions'],
+            ['Traits', 'traits'],
+          ].map(([header, field]) => (
+            <th className={field} key={field} onClick={() => toggleSort(field)}>
+              {header}
+            </th>
+          ))}
         </tr>
       </thead>
       <tbody> 

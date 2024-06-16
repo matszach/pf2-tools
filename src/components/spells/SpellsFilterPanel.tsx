@@ -4,13 +4,13 @@ import { SpellQueryFilterParameters } from "../../services/query/data-query.mode
 import { Col, Form, Row } from "react-bootstrap";
 import { capitalize } from "../../utils/format.util";
 
-function SpellsFilterPanel({ onChange }: { onChange: (queryParams: SpellQueryFilterParameters) => void }) {
+function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFilterParameters) => void }) {
 
   const [name, setName] = useState<string>("");
   const [tradition, setTradition] = useState<string>("all");
 
   useEffect(() => {
-    onChange({ name, tradition });
+    onFilter({ name, tradition });
   }, [name, tradition])
 
   return (
