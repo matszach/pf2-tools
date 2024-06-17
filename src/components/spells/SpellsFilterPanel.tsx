@@ -2,14 +2,16 @@ import './SpellsFilterPanel.scss';
 import { useEffect, useState } from "react";
 import { ALL_SPELL_TRADITIONS, ALL_SPELL_TRAITS } from "../../model/spell.model";
 import { SpellQueryFilterParameters } from "../../services/query/data-query.model";
-import { Accordion, Badge, Col, Form, Row } from "react-bootstrap";
+import { Accordion, Badge, Col, FloatingLabel, Form, Row } from "react-bootstrap";
 import { capitalize } from "../../utils/format.util";
 
 function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFilterParameters) => void }) {
 
-  const [name, setName] = useState<string>("");
-  const [tradition, setTradition] = useState<string>("all");
-  const [traits, setTraits] = useState<{ [trait: string]: number }>({});
+  const [name, setName] = useState<string>('')
+  const [tradition, setTradition] = useState<string>('all')
+  const [traits, setTraits] = useState<{ [trait: string]: number }>({})
+  const [minLevel, setMinLevel] = useState<number | undefined>(1)
+  const [maxLevel, setMaxLevel] = useState<number | undefined>(10)
 
   const toggleTrait = (trait: string) => {
     setTraits({
@@ -18,6 +20,13 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
       // TODO make these into an enum
       [trait]: traits[trait] === 1 ? -1 : traits[trait] === -1 ? 0 : 1
     })
+  }
+
+  const parseNumber = (value: string) => {
+    if (value === '') {
+      return undefined
+    }
+    return parseInt(value)
   }
 
   const getTraitColor = (trait: string) => {
@@ -30,52 +39,66 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
   }
 
   useEffect(() => {
-    onFilter({ name, tradition, traits });
-  }, [name, tradition, traits])
+    onFilter({ name, tradition, traits, level: [minLevel ?? 1, maxLevel ?? 10] });
+  }, [name, tradition, traits, minLevel, maxLevel])
 
   return (
     <div className="SpellsFilterPanel">
-      <Form>
-        <Row>
-          <Col>
-            <Form.Group className="mb-3">
-              {/* TODO floating label? */}
-              <Form.Label>Name</Form.Label> 
-              <Form.Control type="text" onChange={e => setName(e.target.value)} />
-            </Form.Group>
-          </Col>
-          <Col>
-            <Form.Group className="mb-3">
-              <Form.Label>Tradition</Form.Label>
-              <Form.Select defaultValue='all' onChange={e => setTradition(e.target.value)}>
-                <option key='all' value='all'>All</option>
-                {ALL_SPELL_TRADITIONS.map(tradition => (
-                  <option key={tradition} value={tradition}>{capitalize(tradition)}</option>
+      <Row>
+        <Col sm={6} className='mt-3'>
+          <FloatingLabel label="Name">
+            <Form.Control type="text" onChange={e => setName(e.target.value)} value={name}/>
+          </FloatingLabel>
+        </Col>
+        <Col sm={6} className='mt-3'>
+          <FloatingLabel label="Tradition">
+            <Form.Select defaultValue={tradition} onChange={e => setTradition(e.target.value)}>
+              <option key='all' value='all'>All</option>
+              {ALL_SPELL_TRADITIONS.map(tradition => (
+                <option key={tradition} value={tradition}>{capitalize(tradition)}</option>
+              ))}
+            </Form.Select>
+          </FloatingLabel>
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={3} className='mt-3'>
+          <FloatingLabel label="Min. Rank">
+            <Form.Control type="number" 
+              min={1} max={10}
+              onChange={e => setMinLevel(parseNumber(e.target.value))} value={minLevel}
+            />
+          </FloatingLabel>
+        </Col>
+        <Col sm={3} className='mt-3'>
+          <FloatingLabel label="Max. Rank">
+            <Form.Control 
+              min={1} max={10}
+              type="number" onChange={e => setMaxLevel(parseNumber(e.target.value))} value={maxLevel}
+            />
+          </FloatingLabel>
+        </Col>
+        <Col sm={6} className='mt-3'>
+        </Col>
+      </Row>
+      <Row>
+        <Col className='mt-3'>
+          <Accordion>
+            <Accordion.Item eventKey="0">
+              <Accordion.Header>Traits</Accordion.Header>
+              <Accordion.Body>
+                {/* option to reset, toggle match all / match any */}
+                {ALL_SPELL_TRAITS.map(trait => (
+                  // primary for on, danger for off, secomdnary default
+                  <Badge bg={getTraitColor(trait)} key={trait} onClick={() => toggleTrait(trait)}>
+                    {capitalize(trait)}
+                  </Badge>
                 ))}
-              </Form.Select>
-            </Form.Group>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-          {/* make the trait picker a separate component + make the input separateable into groups (here for example class and energy) */}
-            <Accordion>
-              <Accordion.Item eventKey="0">
-                <Accordion.Header>Traits</Accordion.Header>
-                <Accordion.Body>
-                  {/* option to reset, toggle match all / match any */}
-                  {ALL_SPELL_TRAITS.map(trait => (
-                    // primary for on, danger for off, secomdnary default
-                    <Badge bg={getTraitColor(trait)} key={trait} onClick={() => toggleTrait(trait)}>
-                      {capitalize(trait)}
-                    </Badge>
-                  ))}
-                </Accordion.Body>
-              </Accordion.Item>
-            </Accordion>
-          </Col>
-        </Row>
-      </Form>
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+        </Col>
+      </Row>
     </div>
   );
 }
