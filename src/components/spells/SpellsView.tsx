@@ -28,7 +28,8 @@ function SpellsView() {
   // TODO fix the weird paginator behaviour
   return (
     <div className='SpellsView'>
-      <SpellsFilterPanel onFilter={setFilterParams}/>
+      {/* TODO seems like this panel is what "pushes" tehe width and break responsivity */}
+      <SpellsFilterPanel onFilter={setFilterParams}/> 
       <AppPaginator size={pageSize} total={spells.length} onPageChange={setPage} />
       <SpellsPreviewTable onSort={setSortParams} spells={page.of(spells)}/>
     </div>
