@@ -7,15 +7,15 @@ export function spellQuery(
 ): (spells: Spell[]) => Spell[] {
   return (spells: Spell[]) => spells
     .filter(spell => {
-      // name
-      if (name && !spell.name.toLowerCase().includes(name.toLowerCase())) {
-        return false
-      }
-      // tradition
-      if (tradition && tradition !== 'all' && !spell.traditions.includes(tradition)) {
-        return false
-      }
-      // traits
+      return !name || spell.name.toLowerCase().includes(name.toLowerCase())
+    })
+    .filter(spell => {
+      return !tradition || tradition === 'all' || spell.traditions.includes(tradition)
+    })
+    .filter(spell => {
+      return !level || spell.level >= level[0] && spell.level <= level[1]
+    })
+    .filter(spell => {
       if (traits) {
         for (const trait in traits) {
           if (traits[trait] === 1 && !spell.traits.includes(trait)) {
@@ -24,10 +24,6 @@ export function spellQuery(
             return false
           }
         }
-      }
-      // level
-      if (level && (spell.level < level[0] || spell.level > level[1])) {
-        return false
       }
       return true
     })
