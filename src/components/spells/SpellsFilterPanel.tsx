@@ -58,6 +58,7 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
         </Row>
         <Row>
           <Col>
+          {/* make the trait picker a separate component + make the input separateable into groups (here for example class and energy) */}
             <Accordion>
               <Accordion.Item eventKey="0">
                 <Accordion.Header>Traits</Accordion.Header>

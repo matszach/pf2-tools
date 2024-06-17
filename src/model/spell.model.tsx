@@ -21,6 +21,7 @@ export interface Spell {
   requirements: string;
 }
 
+// separate, then make a unit tests tak makes sure none are missing
 export const ALL_SPELL_TRAITS = [
   'acid', 'air', 'attack', 'auditory', 'aura', 'bard', 'beast', 'cantrip', 
   'champion', 'chaotic', 'cleric', 'cold', 'composition', 'concentrate', 

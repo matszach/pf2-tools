@@ -5,9 +5,9 @@ import { Spell } from '../../model/spell.model';
 import provider from '../../services/provider';
 import AppPaginator from '../app-paginator/AppPaginator';
 import { Page } from '../app-paginator/page';
-import { SpellQueryBuilder } from '../../services/query/spell-query-builder';
 import SpellsFilterPanel from './SpellsFilterPanel';
 import { SpellQueryFilterParameters, SpellQuerySortParameters } from '../../services/query/data-query.model';
+import { spellQuery } from '../../services/query/spell.query';
 
 function SpellsView() {
 
@@ -18,9 +18,7 @@ function SpellsView() {
   const [spells, setSpells] = useState<Spell[]>([])
 
   useEffect(() => {
-    const builder = new SpellQueryBuilder()
-    const query = builder.fromParams({ filterParams, sortParams }).build()
-    provider.spellApi.query(query).then(setSpells)
+    provider.spellApi.fetchData().then(spellQuery(filterParams, sortParams)).then(setSpells)
   }, [filterParams, sortParams])
 
   useEffect(() => {
