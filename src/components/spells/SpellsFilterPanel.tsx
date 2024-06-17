@@ -43,7 +43,7 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
   }, [name, tradition, traits, minLevel, maxLevel])
 
   return (
-    <div className="SpellsFilterPanel">
+    <div className="SpellsFilterPanel mb-3">
       <Row>
         <Col sm={6} className='mt-3'>
           <FloatingLabel label="Name">
@@ -62,7 +62,7 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
         </Col>
       </Row>
       <Row>
-        <Col sm={3} className='mt-3'>
+        <Col sm={3} xs={6} className='mt-3'>
           <FloatingLabel label="Min. Rank">
             <Form.Control type="number" 
               min={1} max={10}
@@ -70,7 +70,7 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
             />
           </FloatingLabel>
         </Col>
-        <Col sm={3} className='mt-3'>
+        <Col sm={3} xs={6} className='mt-3'>
           <FloatingLabel label="Max. Rank">
             <Form.Control 
               min={1} max={10}
@@ -79,6 +79,7 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
           </FloatingLabel>
         </Col>
         <Col sm={6} className='mt-3'>
+          TODO
         </Col>
       </Row>
       <Row>
