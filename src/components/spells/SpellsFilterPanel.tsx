@@ -1,9 +1,9 @@
 import './SpellsFilterPanel.scss';
-import { useEffect, useState } from "react";
-import { ALL_SPELL_TRADITIONS, ALL_SPELL_TRAITS } from "../../model/spell.model";
-import { SpellQueryFilterParameters } from "../../services/query/data-query.model";
-import { Accordion, Badge, Col, FloatingLabel, Form, Row } from "react-bootstrap";
-import { capitalize } from "../../utils/format.util";
+import { useEffect, useState } from 'react';
+import { ALL_SPELL_TRADITIONS, ALL_SPELL_TRAITS } from '../../model/spell.model';
+import { SpellQueryFilterParameters } from '../../services/query/data-query.model';
+import { Accordion, Badge, Col, FloatingLabel, Form, Row } from 'react-bootstrap';
+import { capitalize } from '../../utils/format.util';
 
 function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFilterParameters) => void }) {
 
@@ -43,15 +43,15 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
   }, [name, tradition, traits, minLevel, maxLevel])
 
   return (
-    <div className="SpellsFilterPanel mb-3">
+    <div className='SpellsFilterPanel mb-3'>
       <Row>
         <Col sm={6} className='mt-3'>
-          <FloatingLabel label="Name">
-            <Form.Control type="text" onChange={e => setName(e.target.value)} value={name}/>
+          <FloatingLabel label='Name'>
+            <Form.Control type='text' onChange={e => setName(e.target.value)} value={name}/>
           </FloatingLabel>
         </Col>
         <Col sm={6} className='mt-3'>
-          <FloatingLabel label="Tradition">
+          <FloatingLabel label='Tradition'>
             <Form.Select defaultValue={tradition} onChange={e => setTradition(e.target.value)}>
               <option key='all' value='all'>All</option>
               {ALL_SPELL_TRADITIONS.map(tradition => (
@@ -63,18 +63,18 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
       </Row>
       <Row>
         <Col sm={3} xs={6} className='mt-3'>
-          <FloatingLabel label="Min. Rank">
-            <Form.Control type="number" 
+          <FloatingLabel label='Min. Rank'>
+            <Form.Control type='number' 
               min={1} max={10}
               onChange={e => setMinLevel(parseNumber(e.target.value))} value={minLevel}
             />
           </FloatingLabel>
         </Col>
         <Col sm={3} xs={6} className='mt-3'>
-          <FloatingLabel label="Max. Rank">
+          <FloatingLabel label='Max. Rank'>
             <Form.Control 
               min={1} max={10}
-              type="number" onChange={e => setMaxLevel(parseNumber(e.target.value))} value={maxLevel}
+              type='number' onChange={e => setMaxLevel(parseNumber(e.target.value))} value={maxLevel}
             />
           </FloatingLabel>
         </Col>
@@ -85,7 +85,7 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
       <Row>
         <Col className='mt-3'>
           <Accordion>
-            <Accordion.Item eventKey="0">
+            <Accordion.Item eventKey='0'>
               <Accordion.Header>Traits</Accordion.Header>
               <Accordion.Body>
                 {/* option to reset, toggle match all / match any */}

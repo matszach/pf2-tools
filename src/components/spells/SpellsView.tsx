@@ -13,7 +13,7 @@ function SpellsView() {
 
   const [filterParams, setFilterParams] = useState<SpellQueryFilterParameters>({})
   const [sortParams, setSortParams] = useState<SpellQuerySortParameters>({})
-  const [pageSize, _setPageSize] = useState<number>(15)
+  const [pageSize, _setPageSize] = useState<number>(12)
   const [page, setPage] = useState<Page>(new Page(pageSize, 1))
   const [spells, setSpells] = useState<Spell[]>([])
 
