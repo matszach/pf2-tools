@@ -1,6 +1,6 @@
 import './SpellsFilterPanel.scss';
 import { useEffect, useState } from 'react';
-import { ALL_SPELL_TRADITIONS, ALL_SPELL_TRAITS } from '../../model/spell.model';
+import { ALL_SPELL_TRADITIONS, SPELL_TRAITS } from '../../model/spell.model';
 import { SpellQueryFilterParameters } from '../../services/query/data-query.model';
 import { Accordion, Badge, Col, FloatingLabel, Form, Row } from 'react-bootstrap';
 import { capitalize } from '../../utils/format.util';
@@ -89,12 +89,16 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
               <Accordion.Header>Traits</Accordion.Header>
               <Accordion.Body>
                 {/* option to reset, toggle match all / match any */}
-                {/* move rarity to traits */}
-                {ALL_SPELL_TRAITS.map(trait => (
-                  // primary for on, danger for off, secondary for default
-                  <Badge bg={getTraitColor(trait)} key={trait} onClick={() => toggleTrait(trait)}>
-                    {capitalize(trait)}
-                  </Badge>
+                {Object.values(SPELL_TRAITS).map((traitGroup, index) => (
+                  <>
+                    {index > 0 && <hr className='m-1' />}
+                    {traitGroup.map(trait => (
+                      // primary for on, danger for off, secondary for default
+                      <Badge bg={getTraitColor(trait)} key={trait} onClick={() => toggleTrait(trait)}>
+                        {capitalize(trait)}
+                      </Badge>
+                    ))}
+                  </>
                 ))}
               </Accordion.Body>
             </Accordion.Item>

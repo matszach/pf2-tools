@@ -21,23 +21,15 @@ export interface Spell {
   requirements: string;
 }
 
-// separate, then make a unit tests tak makes sure none are missing
-export const ALL_SPELL_TRAITS = [
-  'acid', 'air', 'attack', 'auditory', 'aura', 'bard', 'beast', 'cantrip', 
-  'champion', 'chaotic', 'cleric', 'cold', 'common','composition', 'concentrate', 
-  'consecration', 'contingency', 'curse', 'cursebound', 'darkness', 'death', 
-  'detection', 'disease', 'dream', 'druid', 'earth', 'eidolon', 'electricity', 
-  'emotion', 'evil', 'extradimensional', 'fear', 'fire', 'focus', 
-  'force', 'fortune', 'fungus', 'good', 'healing', 'hex', 'holy', 'illusion', 
-  'incapacitation', 'incarnate', 'incorporeal', 'inhaled', 'lawful', 'light', 
-  'linguistic', 'litany', 'magus', 'manipulate', 'mental', 'metal', 'misfortune', 
-  'monk', 'morph', 'move', 'nonlethal', 'olfactory', 'oracle', 'plant', 'poison', 
-  'polymorph', 'possession', 'prediction', 'psychic', 'ranger', 'rare', 'revelation', 
-  'ritual', 'sanctified', 'scrying', 'shadow', 'sleep', 'sonic', 'sorcerer', 
-  'spellshape', 'spirit', 'stance', 'subtle', 'summon', 'summoner', 'teleportation', 
-  'trial', 'true-name', 'uncommon', 'unholy', 'visual', 'vitality', 'void', 'water', 'witch', 
-  'wizard', 'wood'
-]
+export const SPELL_TRAITS = {
+  ALIGNMENT: ['chaotic', 'evil', 'good', 'lawful', 'sanctified', 'holy', 'unholy'],
+  CLASS: ['bard', 'champion', 'cleric', 'druid', 'magus', 'monk', 'oracle', 'psychic', 'ranger', 'sorcerer', 'summoner', 'witch', 'wizard'],
+  DELIVERY: ['aura', 'attack', 'auditory', 'concentrate', 'contingency', 'incapacitation', 'inhaled', 'linguistic', 'nonlethal', 'olfactory', 'manipulate', 'spellshape', 'stance', 'subtle', 'visual'],
+  KIND: ['acid', 'air', 'cold', 'curse', 'darkness', 'death', 'detection', 'disease', 'earth', 'electricity', 'emotion', 'fear', 'fire', 'force', 'fortune', 'fungus', 'healing', 'illusion', 'light', 'mental', 'metal', 'misfortune', 'morph', 'plant', 'poison', 'polymorph', 'possession', 'prediction', 'scrying', 'shadow', 'sleep', 'sonic', 'spirit', 'summon', 'teleportation', 'vitality', 'void', 'water', 'wood', 'extradimensional', 'move'],
+  OTHER: ['beast', 'consecration', 'cursebound', 'dream', 'eidolon', 'incarnate', 'incorporeal', 'litany', 'revelation', 'true-name', 'trial'],
+  RARITY: ['common', 'uncommon', 'rare', 'unique'],
+  TYPE: ['cantrip', 'composition', 'focus', 'hex', 'ritual']
+};
 
 export const ALL_SPELL_TRADITIONS = [
   'arcane', 'divine', 'primal', 'occult'
