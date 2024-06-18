@@ -51,18 +51,6 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
             <Form.Control type='text' onChange={e => setName(e.target.value)} value={name}/>
           </FloatingLabel>
         </Col>
-        <Col sm={6} className='mt-3'>
-          <FloatingLabel label='Tradition'>
-            <Form.Select defaultValue={tradition} onChange={e => setTradition(e.target.value)}>
-              <option key='all' value='all'>All</option>
-              {SPELL_TRADITIONS.map(t => (
-                <option key={t} value={t}>{capitalize(t)}</option>
-              ))}
-            </Form.Select>
-          </FloatingLabel>
-        </Col>
-      </Row>
-      <Row>
         <Col sm={3} xs={6} className='mt-3'>
           <FloatingLabel label='Min. Rank'>
             <Form.Control type='number' 
@@ -77,6 +65,18 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
               min={1} max={10}
               type='number' onChange={e => setMaxLevel(parseNumber(e.target.value))} value={maxLevel}
             />
+          </FloatingLabel>
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={6} className='mt-3'>
+          <FloatingLabel label='Tradition'>
+            <Form.Select defaultValue={tradition} onChange={e => setTradition(e.target.value)}>
+              <option key='all' value='all'>All</option>
+              {SPELL_TRADITIONS.map(t => (
+                <option key={t} value={t}>{capitalize(t)}</option>
+              ))}
+            </Form.Select>
           </FloatingLabel>
         </Col>
         <Col sm={6} className='mt-3'>
