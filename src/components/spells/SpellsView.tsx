@@ -25,7 +25,6 @@ function SpellsView() {
     setPage(new Page(pageSize, 1)) // works as a temp fix (need to still fix visual)
   }, [filterParams])
 
-  // TODO fix the weird paginator behaviour
   return (
     <div className='SpellsView'>
       {/* TODO seems like this panel is what "pushes" tehe width and break responsivity */}

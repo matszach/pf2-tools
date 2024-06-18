@@ -13,10 +13,10 @@ export function clamp(value: number, min: number, max: number): number {
 }
 
 export function getPaginatorMiddleButtons(selectedPage: number, maxPages: number, threshold = 11): number[] {
-  threshold = clamp(5, threshold, maxPages);
   if (maxPages < threshold) {
     return numbers(1, maxPages);
   } else {
+    threshold = clamp(5, threshold, maxPages);
     let min = Math.floor(selectedPage - (threshold - 1) / 2);
     let max = Math.ceil(selectedPage + (threshold - 1) / 2);
     if (min < 1) {

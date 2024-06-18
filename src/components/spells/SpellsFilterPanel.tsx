@@ -89,6 +89,7 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
               <Accordion.Header>Traits</Accordion.Header>
               <Accordion.Body>
                 {/* option to reset, toggle match all / match any */}
+                {/* move rarity to traits */}
                 {ALL_SPELL_TRAITS.map(trait => (
                   // primary for on, danger for off, secondary for default
                   <Badge bg={getTraitColor(trait)} key={trait} onClick={() => toggleTrait(trait)}>
