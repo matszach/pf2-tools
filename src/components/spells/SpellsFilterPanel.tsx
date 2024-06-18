@@ -1,6 +1,6 @@
 import './SpellsFilterPanel.scss';
 import { useEffect, useState } from 'react';
-import { ALL_SPELL_TRADITIONS, SPELL_TRAITS } from '../../model/spell.model';
+import { SPELL_CASTING_TIMES, SPELL_TRADITIONS, SPELL_TRAITS } from '../../model/spell.model';
 import { SpellQueryFilterParameters } from '../../services/query/data-query.model';
 import { Accordion, Badge, Col, FloatingLabel, Form, Row } from 'react-bootstrap';
 import { capitalize } from '../../utils/format.util';
@@ -8,10 +8,11 @@ import { capitalize } from '../../utils/format.util';
 function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFilterParameters) => void }) {
 
   const [name, setName] = useState<string>('')
-  const [tradition, setTradition] = useState<string>('all')
+  const [tradition, setTradition] = useState<string>('all') // TODO make this into an enum
   const [traits, setTraits] = useState<{ [trait: string]: number }>({})
   const [minLevel, setMinLevel] = useState<number | undefined>(1)
   const [maxLevel, setMaxLevel] = useState<number | undefined>(10)
+  const [castingTime, setCastingTime] = useState<string>('all') // TODO make this into an enum
 
   const toggleTrait = (trait: string) => {
     setTraits({
@@ -39,8 +40,8 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
   }
 
   useEffect(() => {
-    onFilter({ name, tradition, traits, level: [minLevel ?? 1, maxLevel ?? 10] });
-  }, [name, tradition, traits, minLevel, maxLevel])
+    onFilter({ name, tradition, traits, level: [minLevel ?? 1, maxLevel ?? 10], castingTime });
+  }, [name, tradition, traits, minLevel, maxLevel, castingTime])
 
   return (
     <div className='SpellsFilterPanel mb-3'>
@@ -54,8 +55,8 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
           <FloatingLabel label='Tradition'>
             <Form.Select defaultValue={tradition} onChange={e => setTradition(e.target.value)}>
               <option key='all' value='all'>All</option>
-              {ALL_SPELL_TRADITIONS.map(tradition => (
-                <option key={tradition} value={tradition}>{capitalize(tradition)}</option>
+              {SPELL_TRADITIONS.map(t => (
+                <option key={t} value={t}>{capitalize(t)}</option>
               ))}
             </Form.Select>
           </FloatingLabel>
@@ -79,26 +80,33 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
           </FloatingLabel>
         </Col>
         <Col sm={6} className='mt-3'>
-          TODO
+          <FloatingLabel label='Casting Time'>
+            <Form.Select defaultValue={castingTime} onChange={e => setCastingTime(e.target.value)}>
+              <option key='all' value='all'>All</option>
+              {Object.values(SPELL_CASTING_TIMES).map(ct => (
+                <option key={ct} value={ct}>{capitalize(ct)}</option>
+              ))}
+            </Form.Select>
+          </FloatingLabel>
         </Col>
       </Row>
       <Row>
         <Col className='mt-3'>
           <Accordion>
             <Accordion.Item eventKey='0'>
-              <Accordion.Header>Traits</Accordion.Header>
+              <Accordion.Header key={'traits-header'}>Traits</Accordion.Header>
               <Accordion.Body>
                 {/* option to reset, toggle match all / match any */}
                 {Object.values(SPELL_TRAITS).map((traitGroup, index) => (
-                  <>
-                    {index > 0 && <hr className='m-1' />}
+                  <div key={`trait-group-${index}`}>
+                    {index > 0 && <hr key={`traits-hr-${index}`} className='m-1' />}
                     {traitGroup.map(trait => (
                       // primary for on, danger for off, secondary for default
-                      <Badge bg={getTraitColor(trait)} key={trait} onClick={() => toggleTrait(trait)}>
+                      <Badge bg={getTraitColor(trait)} key={`trait-${trait}`} onClick={() => toggleTrait(trait)}>
                         {capitalize(trait)}
                       </Badge>
                     ))}
-                  </>
+                  </div>
                 ))}
               </Accordion.Body>
             </Accordion.Item>

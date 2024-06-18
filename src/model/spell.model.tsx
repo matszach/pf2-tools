@@ -31,6 +31,26 @@ export const SPELL_TRAITS = {
   TYPE: ['cantrip', 'composition', 'focus', 'hex', 'ritual']
 };
 
-export const ALL_SPELL_TRADITIONS = [
+export const SPELL_TRADITIONS = [
   'arcane', 'divine', 'primal', 'occult'
 ]
+
+// export const POSSIBLE_SPELL_CASTING_TIMES = [
+//   '2', '1 to 3', '1', 'reaction', '10 minutes', '3', 
+//   '1 minute', '2 hours', '1 day', '1 hour', '4 hours', 
+//   '30 minutes', '2 or 3', 'free', '7 days', '6 days', 
+//   '3 days', '9 days', '2 days', '2 to 2 rounds', 
+//   '1 week', '1 or 2', '8 hours', '5 minutes', 'Free'
+// ]
+
+// TODO - maps props so that data is not mixed up with content
+export enum SPELL_CASTING_TIMES {
+  ONE_ACTION = '1 action',
+  TWO_ACTIONS = '2 actions', 
+  THREE_ACTIONS = '3 actions', 
+  FREE = 'rree action', 
+  REACTION = 'reaction', 
+  MINUTES = 'minutes', 
+  HOURS = 'hours', 
+  DAYS = 'days'
+}

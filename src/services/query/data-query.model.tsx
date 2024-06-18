@@ -3,6 +3,7 @@ export interface SpellQueryFilterParameters {
   tradition?: string;
   level?: [number, number];
   traits?: { [trait: string]: number };
+  castingTime?: string;
 }
 
 export interface SpellQuerySortParameters {
