@@ -40,7 +40,7 @@ function AppPaginator(
               key={page} 
               active={page === seletedPage} 
               onClick={() => setPage(page as number)}
-          >
+            >
               {page}
             </Pagination.Item>
           )
