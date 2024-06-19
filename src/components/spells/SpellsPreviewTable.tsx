@@ -23,6 +23,10 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
     onSort(sortParams)
   }, [sortParams])
 
+  const renderSortArrow = (field: string) => {
+    return sortParams.field === field ? (sortParams.direction === 1 ? <FaArrowDown /> : <FaArrowUp />) : null
+  }
+
   return (
     <Table className="SpellsPreviewTable" striped bordered hover responsive>
       <thead>
@@ -36,6 +40,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
           ].map(([header, field]) => (
             <th className={field} key={field} onClick={() => toggleSort(field)}>
               {header}
+              {renderSortArrow(field)}
             </th>
           ))}
         </tr>

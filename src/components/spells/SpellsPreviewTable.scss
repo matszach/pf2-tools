@@ -1,16 +1,29 @@
+
 .SpellsPreviewTable {
   thead {
-    th.name {
-      width: 20%
+    th {
+      cursor: pointer;
+      svg {
+        margin-left: 5px;
+        margin-bottom: 2px;
+      }
+      &.name {
+        width: 20%
+      }
+      &.level {
+        width: 10%
+      }
+      &.castingTime {
+        width: 15%
+      }
+      &.traditions {
+        width: 20%
+      }
     }
-    th.level {
-      width: 10%
-    }
-    th.castingTime {
-      width: 15%
-    }
-    th.traditions {
-      width: 20%
+  }
+  tbody {
+    tr {
+      cursor: pointer;
     }
   }
 }
