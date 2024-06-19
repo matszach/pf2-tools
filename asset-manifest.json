@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/pf2-tools/static/css/main.521c724e.css",
-    "main.js": "/pf2-tools/static/js/main.497bca23.js",
+    "main.css": "/pf2-tools/static/css/main.27f5e527.css",
+    "main.js": "/pf2-tools/static/js/main.1f0334d9.js",
     "index.html": "/pf2-tools/index.html",
-    "main.521c724e.css.map": "/pf2-tools/static/css/main.521c724e.css.map",
-    "main.497bca23.js.map": "/pf2-tools/static/js/main.497bca23.js.map"
+    "main.27f5e527.css.map": "/pf2-tools/static/css/main.27f5e527.css.map",
+    "main.1f0334d9.js.map": "/pf2-tools/static/js/main.1f0334d9.js.map"
   },
   "entrypoints": [
-    "static/css/main.521c724e.css",
-    "static/js/main.497bca23.js"
+    "static/css/main.27f5e527.css",
+    "static/js/main.1f0334d9.js"
   ]
 }
