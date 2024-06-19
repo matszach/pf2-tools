@@ -47,8 +47,9 @@ export const SPELL_TRADITIONS = [
 export enum SPELL_CASTING_TIMES {
   ONE_ACTION = '1 action',
   TWO_ACTIONS = '2 actions', 
-  THREE_ACTIONS = '3 actions', 
-  FREE = 'rree action', 
+  THREE_ACTIONS = '3 actions',
+  FLEXIBLE = 'flexible',
+  FREE = 'free', 
   REACTION = 'reaction', 
   MINUTES = 'minutes', 
   HOURS = 'hours', 
