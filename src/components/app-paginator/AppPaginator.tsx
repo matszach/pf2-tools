@@ -3,7 +3,7 @@ import "./AppPaginator.scss"
 import { Pagination } from "react-bootstrap"
 import { PAGINATOR_ELIPSIS, getPaginatorMiddleButtons } from "../../utils/calculation.util"
 import { Page } from "./page"
-import { useScreen, useWindowSize } from "usehooks-ts"
+import { useWindowSize } from "usehooks-ts"
 
 function AppPaginator(
   { size, total, onPageChange }: 
