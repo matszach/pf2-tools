@@ -27,7 +27,7 @@ function AppPaginator(
   const maxPage = Math.ceil(total / size)
   const nextPage = seletedPage < maxPage ? seletedPage + 1 : maxPage
 
-  let middleItems = getPaginatorMiddleButtons(seletedPage, maxPage, 10)
+  const middleItems = getPaginatorMiddleButtons(seletedPage, maxPage, 10)
 
   const desktopPagination = () => (
     <Pagination>
