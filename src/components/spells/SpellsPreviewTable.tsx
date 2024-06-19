@@ -24,7 +24,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
   }, [sortParams])
 
   return (
-    <Table className="SpellsPreviewTable" striped bordered hover>
+    <Table className="SpellsPreviewTable" striped bordered hover responsive>
       <thead>
         <tr>
           {[
