@@ -1,12 +1,12 @@
 import './SpellsPreviewTable.scss';
-import { Modal, Table } from "react-bootstrap";
+import { Table } from "react-bootstrap";
 import { Spell } from "../../model/spell.model";
 import { SpellQuerySortParameters } from "../../services/query/data-query.model";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa"; 
 import { useEffect, useState } from "react";
-import parse from 'html-react-parser'
 import { useSearchParams } from 'react-router-dom';
 import provider from '../../services/provider';
+import SpellModal from './SpellModal';
 
 function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sortParams: SpellQuerySortParameters) => void }) {
 
@@ -76,16 +76,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
           </tr>
         ))}
       </tbody>
-      {/* OWN COMPONENT */}
-      <Modal show={!!spellInModal} onHide={() => closeModal()}>
-        <Modal.Header closeButton>
-          <Modal.Title>{spellInModal?.name}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          {/* Data trabsformer will need to edit out the vtt commands for this to fully work of course */}
-          <p>{parse(spellInModal?.description ?? '')}</p>
-        </Modal.Body>
-      </Modal>
+      <SpellModal spell={spellInModal} onHide={closeModal} />
     </Table>
   )
 }
