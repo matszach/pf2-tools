@@ -1,9 +1,9 @@
 import './SpellsFilterPanel.scss';
 import { useEffect, useState } from 'react';
-import { SPELL_CASTING_TIMES, SPELL_TRADITIONS, SPELL_TRAITS } from '../../model/spell.model';
+import { SpellCastingTimeEnum, SPELL_TRADITIONS, SPELL_TRAITS } from '../../model/spell.model';
 import { SpellQueryFilterParameters } from '../../services/query/data-query.model';
 import { Accordion, Badge, Col, FloatingLabel, Form, Row } from 'react-bootstrap';
-import { capitalize } from '../../utils/format.util';
+import { capitalize, parseNumber } from '../../utils/format.util';
 
 function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFilterParameters) => void }) {
 
@@ -12,7 +12,12 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
   const [traits, setTraits] = useState<{ [trait: string]: number }>({})
   const [minLevel, setMinLevel] = useState<number | undefined>(1)
   const [maxLevel, setMaxLevel] = useState<number | undefined>(10)
-  const [castingTime, setCastingTime] = useState<string>('all') // TODO make this into an enum
+  const [castingTime, setCastingTime] = useState<SpellCastingTimeEnum>(SpellCastingTimeEnum.ALL)
+  const [range, setRange] = useState<string>('all') // TODO make this into an enum
+  const [area, setArea] = useState<string>('all') // TODO make this into an enum
+  const [duration, setDuration] = useState<string>('all') // TODO make this into an enum
+  const [target, setTarget] = useState<string>('all') // TODO make this into an enum
+  const [defense, setDefense] = useState<string>('all') // TODO make this into an enum
 
   const toggleTrait = (trait: string) => {
     setTraits({
@@ -21,13 +26,6 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
       // TODO make these into an enum
       [trait]: traits[trait] === 1 ? -1 : traits[trait] === -1 ? 0 : 1
     })
-  }
-
-  const parseNumber = (value: string) => {
-    if (value === '') {
-      return undefined
-    }
-    return parseInt(value)
   }
 
   const getTraitColor = (trait: string) => {
@@ -40,8 +38,11 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
   }
 
   useEffect(() => {
-    onFilter({ name, tradition, traits, level: [minLevel ?? 1, maxLevel ?? 10], castingTime });
-  }, [name, tradition, traits, minLevel, maxLevel, castingTime])
+    onFilter({ 
+      name, tradition, traits, level: [minLevel ?? 1, maxLevel ?? 10], 
+      castingTime, area, duration, target, defense, range
+     });
+  }, [name, tradition, traits, minLevel, maxLevel, castingTime, area, duration, target, defense, range])
 
   return (
     <div className='SpellsFilterPanel mb-3'>
@@ -81,9 +82,8 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
         </Col>
         <Col sm={6} className='mt-3'>
           <FloatingLabel label='Casting Time'>
-            <Form.Select defaultValue={castingTime} onChange={e => setCastingTime(e.target.value)}>
-              <option key='all' value='all'>All</option>
-              {Object.values(SPELL_CASTING_TIMES).map(ct => (
+            <Form.Select defaultValue={castingTime} onChange={e => setCastingTime(e.target.value as SpellCastingTimeEnum)}>
+              {Object.values(SpellCastingTimeEnum).map(ct => (
                 <option key={ct} value={ct}>{capitalize(ct)}</option>
               ))}
             </Form.Select>

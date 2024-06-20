@@ -8,13 +8,13 @@ import { Page } from '../app-paginator/page';
 import SpellsFilterPanel from './SpellsFilterPanel';
 import { SpellQueryFilterParameters, SpellQuerySortParameters } from '../../services/query/data-query.model';
 import { spellQuery } from '../../services/query/spell.query';
+import { PAGE_SIZE } from '../../const/numbers.const';
 
 function SpellsView() {
 
   const [filterParams, setFilterParams] = useState<SpellQueryFilterParameters>({})
   const [sortParams, setSortParams] = useState<SpellQuerySortParameters>({})
-  const [pageSize, _setPageSize] = useState<number>(12)
-  const [page, setPage] = useState<Page>(new Page(pageSize, 1))
+  const [page, setPage] = useState<Page>(new Page(PAGE_SIZE, 1))
   const [spells, setSpells] = useState<Spell[]>([])
 
   useEffect(() => {
@@ -22,15 +22,16 @@ function SpellsView() {
   }, [filterParams, sortParams])
 
   useEffect(() => {
-    setPage(new Page(pageSize, 1)) // works as a temp fix (need to still fix visual)
+    setPage(new Page(PAGE_SIZE, 1))
   }, [filterParams])
 
   return (
     <div className='SpellsView'>
       {/* TODO seems like this panel is what "pushes" tehe width and break responsivity */}
       <SpellsFilterPanel onFilter={setFilterParams}/> 
-      <AppPaginator size={pageSize} total={spells.length} onPageChange={setPage} />
+      <AppPaginator size={page.size} selected={page.selected} total={spells.length} onChange={n => setPage(new Page(PAGE_SIZE, n))} />
       <SpellsPreviewTable onSort={setSortParams} spells={page.of(spells)}/>
+      <AppPaginator size={page.size} selected={page.selected} total={spells.length} onChange={n => setPage(new Page(PAGE_SIZE, n))} />
     </div>
   );
 }

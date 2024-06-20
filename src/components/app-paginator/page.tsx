@@ -1,10 +1,10 @@
 export class Page {
   constructor(
     public readonly size: number,
-    public readonly pageNumber: number,
+    public readonly selected: number,
   ) { }
   of(array: any[]): any[] {
-    const base = this.pageNumber - 1;
+    const base = this.selected - 1;
     return array.slice(base * this.size, (base + 1) * this.size);
   }
 }

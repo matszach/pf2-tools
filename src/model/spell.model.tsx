@@ -44,7 +44,8 @@ export const SPELL_TRADITIONS = [
 // ]
 
 // TODO - maps props so that data is not mixed up with content
-export enum SPELL_CASTING_TIMES {
+export enum SpellCastingTimeEnum {
+  ALL = 'all',
   ONE_ACTION = '1 action',
   TWO_ACTIONS = '2 actions', 
   THREE_ACTIONS = '3 actions',

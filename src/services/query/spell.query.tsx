@@ -1,4 +1,4 @@
-import { SPELL_CASTING_TIMES, Spell } from "../../model/spell.model";
+import { SpellCastingTimeEnum, Spell } from "../../model/spell.model";
 import { SpellQueryFilterParameters, SpellQuerySortParameters } from "./data-query.model";
 
 export function spellQuery(
@@ -27,23 +27,23 @@ export function spellQuery(
       }
       return true
     }).filter(spell => {
-      if (castingTime === SPELL_CASTING_TIMES.ONE_ACTION) {
+      if (castingTime === SpellCastingTimeEnum.ONE_ACTION) {
         return ['1', '1 to 3', '1 or 2'].includes(spell.castingTime)
-      } else if (castingTime === SPELL_CASTING_TIMES.TWO_ACTIONS) {
+      } else if (castingTime === SpellCastingTimeEnum.TWO_ACTIONS) {
         return ['1 or 2', '1 to 3', '2', '2 or 3', '2 to 2 rounds'].includes(spell.castingTime)
-      } else if (castingTime === SPELL_CASTING_TIMES.THREE_ACTIONS) {
+      } else if (castingTime === SpellCastingTimeEnum.THREE_ACTIONS) {
         return ['3', '1 to 3', '2 or 3', '2 to 2 rounds'].includes(spell.castingTime)
-      } else if (castingTime === SPELL_CASTING_TIMES.FLEXIBLE) {
+      } else if (castingTime === SpellCastingTimeEnum.FLEXIBLE) {
         return spell.castingTime.includes(' to ') || spell.castingTime.includes(' or ')
-      } else if (castingTime === SPELL_CASTING_TIMES.REACTION) {
+      } else if (castingTime === SpellCastingTimeEnum.REACTION) {
         return spell.castingTime === 'reaction'
-      } else if (castingTime === SPELL_CASTING_TIMES.FREE) {
+      } else if (castingTime === SpellCastingTimeEnum.FREE) {
         return spell.castingTime === 'free'
-      } else if (castingTime === SPELL_CASTING_TIMES.MINUTES) {
+      } else if (castingTime === SpellCastingTimeEnum.MINUTES) {
         return spell.castingTime.includes(' minute')
-      } else if (castingTime === SPELL_CASTING_TIMES.HOURS) {
+      } else if (castingTime === SpellCastingTimeEnum.HOURS) {
         return spell.castingTime.includes(' hour')
-      } else if (castingTime === SPELL_CASTING_TIMES.DAYS) {
+      } else if (castingTime === SpellCastingTimeEnum.DAYS) {
         return spell.castingTime.includes(' day')
       }
       return true

@@ -1,61 +1,48 @@
-import { useEffect, useState } from "react"
 import "./AppPaginator.scss"
 import { Pagination } from "react-bootstrap"
 import { PAGINATOR_ELIPSIS, getPaginatorMiddleButtons } from "../../utils/calculation.util"
-import { Page } from "./page"
 import { useWindowSize } from "usehooks-ts"
 
 function AppPaginator(
-  { size, total, onPageChange }: 
-  { size: number, total: number, onPageChange: (page: Page) => void }
+  { size, total, selected, onChange }:
+  { size: number, total: number, selected: number, onChange: (page: number) => void }
 ) {
 
-  const [totalRecords] = useState(total)
-  const [seletedPage, setSelectedPage] = useState(1)
   const window = useWindowSize()
 
-  const setPage = (page: number) => {
-    setSelectedPage(page)
-    onPageChange(new Page(size, page))
-  }
-
-  useEffect(() => {
-    setSelectedPage(1)
-  }, [totalRecords])
-
-  const prevPage = seletedPage > 1 ? seletedPage - 1 : 1
+  const prevPage = selected > 1 ? selected - 1 : 1
   const maxPage = Math.ceil(total / size)
-  const nextPage = seletedPage < maxPage ? seletedPage + 1 : maxPage
+  const nextPage = selected < maxPage ? selected + 1 : maxPage
 
-  const middleItems = getPaginatorMiddleButtons(seletedPage, maxPage, 10)
+  const middleItems = getPaginatorMiddleButtons(selected, maxPage, 10)
 
   const desktopPagination = () => (
     <Pagination>
-      <Pagination.Prev onClick={() => setPage(prevPage)} disabled={seletedPage === 1}/>
+      <Pagination.Prev onClick={() => onChange(prevPage)} disabled={selected === 1}/>
       {middleItems.map((page, index) => (
         page === PAGINATOR_ELIPSIS ? (
           <Pagination.Ellipsis key={`elipsis-${index}`} disabled/>
         ) : (
           <Pagination.Item 
             key={page} 
-            active={page === seletedPage} 
-            onClick={() => setPage(page as number)}
+            active={page === selected} 
+            onClick={() => onChange(page as number)}
           >
             {page}
           </Pagination.Item>
         )
       ))}
-      <Pagination.Next onClick={() => setPage(nextPage)} disabled={seletedPage === maxPage}/>
+      <Pagination.Next onClick={() => onChange(nextPage)} disabled={selected === maxPage}/>
     </Pagination>
   )
 
   const mobilePagination = () => (
     <Pagination>
-      <Pagination.First onClick={() => setPage(1)} disabled={seletedPage === 1}/>
-      <Pagination.Prev onClick={() => setPage(prevPage)} disabled={seletedPage === 1}/>
-      <Pagination.Item className='wide'>{`${seletedPage}/${maxPage}`}</Pagination.Item>
-      <Pagination.Next onClick={() => setPage(nextPage)} disabled={seletedPage === maxPage}/>
-      <Pagination.Last onClick={() => setPage(maxPage)} disabled={seletedPage === maxPage}/>
+      <Pagination.First onClick={() => onChange(1)} disabled={selected === 1}/>
+      <Pagination.Prev onClick={() => onChange(prevPage)} disabled={selected === 1}/>
+      <Pagination.Item className='wide'>{`${selected}/${maxPage}`}</Pagination.Item>
+      <Pagination.Next onClick={() => onChange(nextPage)} disabled={selected === maxPage}/>
+      <Pagination.Last onClick={() => onChange(maxPage)} disabled={selected === maxPage}/>
     </Pagination>
   )
 
