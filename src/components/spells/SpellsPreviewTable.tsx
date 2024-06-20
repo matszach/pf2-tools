@@ -45,8 +45,8 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
     }
   })
 
-  const renderSortArrow = (field: string, sortable: boolean) => {
-    return (sortParams.field === field && sortable) ? (sortParams.direction === 1 ? <FaArrowDown /> : <FaArrowUp />) : null
+  const renderSortArrow = (field: string) => {
+    return (sortParams.field === field) ? (sortParams.direction === 1 ? <FaArrowDown /> : <FaArrowUp />) : null
   }
 
   const renderDefence = ({ passive, save }: { passive?: any, save?: any }) => {
@@ -75,20 +75,26 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
       <thead>
         <tr>
           {[
-            ['Name', 'name', 'w-14', true],
-            ['Level', 'level', 'w-8', true],
-            ['Casting Time', 'castingTime', 'w-8', true],
-            ['Target', 'target', 'w-14', false],
-            ['Defense', 'defense', 'w-14', false],
-            ['Range', 'range', 'w-14', false],
-            ['Area', 'area', 'w-14', false],
-            ['Duration', 'duration', 'w-14', false],
+            ['Name', 'name', true],
+            ['Level', 'level', true],
+            ['Casting Time', 'castingTime', true],
+            ['Target', 'target', false],
+            ['Defense', 'defense', false],
+            ['Range', 'range', false],
+            ['Area', 'area', false],
+            ['Duration', 'duration', false],
             // ['Traditions', 'traditions'],
             // ['Traits', 'traits']
-          ].map(([header, field, widthClass, sortable]) => (
-            <th className={`${widthClass}${ sortable ? ' sortable' : ''}`} key={`${field}`} onClick={() => toggleSort(field as string)}>
-              {header}{renderSortArrow(field as string, sortable as boolean)}
-            </th>
+          ].map(([header, field, sortable]) => (
+            sortable ? (
+              <th className={`${field} sortable`} key={`${field}`} onClick={() => toggleSort(field as string)}>
+                {header}{renderSortArrow(field as string)}
+              </th> 
+            ) : (
+              <th className={`${field}`} key={`${field}`}>
+                {header}
+              </th>
+            )
           ))}
         </tr>
       </thead>
