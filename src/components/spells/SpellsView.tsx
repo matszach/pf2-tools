@@ -25,13 +25,21 @@ function SpellsView() {
     setPage(new Page(PAGE_SIZE, 1))
   }, [filterParams])
 
+  const paginator = () => {
+    return (
+      <AppPaginator 
+        size={page.size} selected={page.selected} total={spells.length} 
+        onChange={n => setPage(new Page(PAGE_SIZE, n))} 
+      />
+    )
+  }
+
   return (
     <div className='SpellsView'>
-      {/* TODO seems like this panel is what "pushes" tehe width and break responsivity */}
       <SpellsFilterPanel onFilter={setFilterParams}/> 
-      <AppPaginator size={page.size} selected={page.selected} total={spells.length} onChange={n => setPage(new Page(PAGE_SIZE, n))} />
+      {paginator()}
       <SpellsPreviewTable onSort={setSortParams} spells={page.of(spells)}/>
-      <AppPaginator size={page.size} selected={page.selected} total={spells.length} onChange={n => setPage(new Page(PAGE_SIZE, n))} />
+      {paginator()}
     </div>
   );
 }
