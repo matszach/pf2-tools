@@ -49,7 +49,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
     return (sortParams.field === field) ? (sortParams.direction === 1 ? <FaArrowDown /> : <FaArrowUp />) : null
   }
 
-  const renderDefence = ({ passive, save }: { passive?: any, save?: any }) => {
+  const renderDefense = ({ passive, save }: { passive?: any, save?: any }) => {
     if (passive) {
       switch(passive.statistic) {
         case 'ac': return 'AC'
@@ -61,8 +61,8 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
     } else if (save) {
       const basicSuffix = save.basic ? ', basic' : ''
       switch(save.statistic) {
-        case 'fort': return 'Fortitude' + basicSuffix
-        case 'ref': return 'Reflex' + basicSuffix
+        case 'fortitude': return 'Fortitude' + basicSuffix
+        case 'reflex': return 'Reflex' + basicSuffix
         case 'will': return 'Will' + basicSuffix
         default: return '-'
       }
@@ -105,7 +105,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
             <td>{spell.level}</td>
             <td>{spell.castingTime}</td>
             <td>{tableStringValue(spell.target)}</td>
-            <td>{renderDefence(spell.defense ?? {})}</td>
+            <td>{renderDefense(spell.defense ?? {})}</td>
             <td>{tableStringValue(spell.range)}</td>
             <td>{tableStringValue(spell.area?.details)}</td>
             <td>{tableStringValue(spell.duration.value)}{spell.duration.sustained ? ', sustained' : ''}</td>

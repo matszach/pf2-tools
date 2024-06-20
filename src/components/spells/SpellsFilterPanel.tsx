@@ -1,6 +1,6 @@
 import './SpellsFilterPanel.scss';
 import { useEffect, useState } from 'react';
-import { SpellCastingTimeEnum, SPELL_TRADITIONS, SPELL_TRAITS } from '../../model/spell.model';
+import { SpellCastingTimeEnum, SPELL_TRADITIONS, SPELL_TRAITS, SpellDefenseEnum } from '../../model/spell.model';
 import { SpellQueryFilterParameters } from '../../services/query/data-query.model';
 import { Accordion, Badge, Col, FloatingLabel, Form, Row } from 'react-bootstrap';
 import { capitalize, parseNumber } from '../../utils/format.util';
@@ -17,7 +17,7 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
   const [area, setArea] = useState<string>('all') // TODO make this into an enum
   const [duration, setDuration] = useState<string>('all') // TODO make this into an enum
   const [target, setTarget] = useState<string>('all') // TODO make this into an enum
-  const [defense, setDefense] = useState<string>('all') // TODO make this into an enum
+  const [defense, setDefense] = useState<SpellDefenseEnum>(SpellDefenseEnum.ALL)
 
   const toggleTrait = (trait: string) => {
     setTraits({
@@ -70,7 +70,7 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
         </Col>
       </Row>
       <Row>
-        <Col sm={6} className='mt-3'>
+        <Col sm={3} xs={6} className='mt-3'>
           <FloatingLabel label='Tradition'>
             <Form.Select defaultValue={tradition} onChange={e => setTradition(e.target.value)}>
               <option key='all' value='all'>All</option>
@@ -80,7 +80,7 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
             </Form.Select>
           </FloatingLabel>
         </Col>
-        <Col sm={6} className='mt-3'>
+        <Col sm={3} xs={6} className='mt-3'>
           <FloatingLabel label='Casting Time'>
             <Form.Select defaultValue={castingTime} onChange={e => setCastingTime(e.target.value as SpellCastingTimeEnum)}>
               {Object.values(SpellCastingTimeEnum).map(ct => (
@@ -89,6 +89,16 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
             </Form.Select>
           </FloatingLabel>
         </Col>
+        <Col sm={3} xs={6} className='mt-3'>
+          <FloatingLabel label='Defense'>
+            <Form.Select defaultValue={defense} onChange={e => setDefense(e.target.value as SpellDefenseEnum)}>
+              {Object.values(SpellDefenseEnum).map(d => (
+                <option key={d} value={d}>{capitalize(d)}</option>
+              ))}
+            </Form.Select>
+          </FloatingLabel>
+        </Col>
+        <Col sm={3} xs={6} className='mt-3'>duration</Col>
       </Row>
       <Row>
         <Col className='mt-3'>

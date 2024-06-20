@@ -1,8 +1,8 @@
-import { SpellCastingTimeEnum, Spell } from "../../model/spell.model";
+import { SpellCastingTimeEnum, Spell, SpellDefenseEnum } from "../../model/spell.model";
 import { SpellQueryFilterParameters, SpellQuerySortParameters } from "./data-query.model";
 
 export function spellQuery(
-  { name, tradition, traits, level, castingTime }: SpellQueryFilterParameters, 
+  { name, tradition, traits, level, castingTime, defense }: SpellQueryFilterParameters, 
   { field, direction = 1 }: SpellQuerySortParameters
 ): (spells: Spell[]) => Spell[] {
   return (spells: Spell[]) => spells
@@ -26,7 +26,22 @@ export function spellQuery(
         }
       }
       return true
-    }).filter(spell => {
+    })
+    .filter(spell => {
+      if (defense === SpellDefenseEnum.NONE) {
+        return !spell.defense
+      } else if (defense === SpellDefenseEnum.AC) {
+        return spell.defense?.passive?.statistic === 'ac'
+      } else if (defense === SpellDefenseEnum.FORT) {
+        return (spell.defense?.passive?.statistic === 'fortitude-dc') || (spell.defense?.save?.statistic === 'fortitude')
+      } else if (defense === SpellDefenseEnum.REF) {
+        return (spell.defense?.passive?.statistic === 'reflex-dc') || (spell.defense?.save?.statistic === 'reflex')
+      } else if (defense === SpellDefenseEnum.WILL) {
+        return (spell.defense?.passive?.statistic === 'will-dc') || (spell.defense?.save?.statistic === 'will')
+      }
+      return true
+    })
+    .filter(spell => {
       if (castingTime === SpellCastingTimeEnum.ONE_ACTION) {
         return ['1', '1 to 3', '1 or 2'].includes(spell.castingTime)
       } else if (castingTime === SpellCastingTimeEnum.TWO_ACTIONS) {
