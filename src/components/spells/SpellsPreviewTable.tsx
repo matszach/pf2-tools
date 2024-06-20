@@ -1,16 +1,29 @@
 import './SpellsPreviewTable.scss';
-import { Table } from "react-bootstrap";
+import { Modal, Table } from "react-bootstrap";
 import { Spell } from "../../model/spell.model";
-import { useNavigate } from "react-router-dom";
-import { AppRoutes } from "../../const/routes.const";
 import { SpellQuerySortParameters } from "../../services/query/data-query.model";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa"; 
 import { useEffect, useState } from "react";
+import parse from 'html-react-parser'
+import { useSearchParams } from 'react-router-dom';
+import provider from '../../services/provider';
 
 function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sortParams: SpellQuerySortParameters) => void }) {
 
-  const navigate = useNavigate();
+  // TODO read param from url to launch spell modal?
+  const [spellInModal, setSpellInModal] = useState<Spell | undefined>(undefined)
   const [sortParams, setSortParams] = useState<SpellQuerySortParameters>({})
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const showModal = (spell: Spell) => {
+    setSpellInModal(spell)
+    setSearchParams({ spell: spell.key })
+  }
+
+  const closeModal = () => {
+    setSpellInModal(undefined)
+    setSearchParams({})
+  }
 
   const toggleSort = (field: string) => {
     setSortParams({ 
@@ -22,6 +35,15 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
   useEffect(() => {
     onSort(sortParams)
   }, [sortParams])
+
+  useEffect(() => {
+    const searchKey = searchParams.get('spell')
+    if (searchKey) {
+      provider.spellApi.get(searchKey).then((spell) => {
+        setSpellInModal(spell)
+      })
+    }
+  })
 
   const renderSortArrow = (field: string) => {
     return sortParams.field === field ? (sortParams.direction === 1 ? <FaArrowDown /> : <FaArrowUp />) : null
@@ -39,18 +61,14 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
             ['Traits', 'traits'],
           ].map(([header, field]) => (
             <th className={field} key={field} onClick={() => toggleSort(field)}>
-              {header}
-              {renderSortArrow(field)}
+              {header}{renderSortArrow(field)}
             </th>
           ))}
         </tr>
       </thead>
       <tbody> 
         {spells.map((spell) => (
-          <tr key={spell.key} onClick={() => {
-            const url = AppRoutes.SPELL_KEY.replace(':key', spell.key || 'NOT_FOUND')
-            navigate(url) // TODO make it open a new window OR remember the query settings
-          }}>
+          <tr key={spell.key} onClick={() => showModal(spell)}>
             <td>{spell.name}</td>
             <td>{spell.level}</td>
             <td>{spell.castingTime}</td>
@@ -59,6 +77,16 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
           </tr>
         ))}
       </tbody>
+      {/* OWN COMPONENT */}
+      <Modal show={!!spellInModal} onHide={() => closeModal()}>
+        <Modal.Header closeButton>
+          <Modal.Title>{spellInModal?.name}</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {/* Data trabsformer will need to edit out the vtt commands for this to fully work of course */}
+          <p>{parse(spellInModal?.description ?? '')}</p>
+        </Modal.Body>
+      </Modal>
     </Table>
   )
 }

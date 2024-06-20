@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import AppNavbar from './components/navbar/Nav';
 import { AppRoutes } from './const/routes.const';
 import { content } from './content/content';
@@ -17,10 +17,6 @@ function App() {
           }/>
           <Route path={AppRoutes.SPELLS} element={
             <SpellsView></SpellsView>
-          }/>
-          <Route path={AppRoutes.SPELL_KEY} element={
-            // TODO use useLocation hook https://reactrouter.com/en/main/hooks/use-location
-            <div>{window.location.hash}</div> 
           }/>
           <Route path={AppRoutes.EQUIPMENT} element={
             <div>{content.workInProgress}</div>
