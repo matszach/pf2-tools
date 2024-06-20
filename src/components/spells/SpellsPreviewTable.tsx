@@ -10,7 +10,6 @@ import provider from '../../services/provider';
 
 function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sortParams: SpellQuerySortParameters) => void }) {
 
-  // TODO read param from url to launch spell modal?
   const [spellInModal, setSpellInModal] = useState<Spell | undefined>(undefined)
   const [sortParams, setSortParams] = useState<SpellQuerySortParameters>({})
   const [searchParams, setSearchParams] = useSearchParams()
