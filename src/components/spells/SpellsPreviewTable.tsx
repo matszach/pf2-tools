@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from 'react-router-dom';
 import provider from '../../services/provider';
 import SpellModal from './SpellModal';
+import { tableStringValue } from '../../utils/format.util';
 
 function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sortParams: SpellQuerySortParameters) => void }) {
 
@@ -44,8 +45,29 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
     }
   })
 
-  const renderSortArrow = (field: string) => {
-    return sortParams.field === field ? (sortParams.direction === 1 ? <FaArrowDown /> : <FaArrowUp />) : null
+  const renderSortArrow = (field: string, sortable: boolean) => {
+    return (sortParams.field === field && sortable) ? (sortParams.direction === 1 ? <FaArrowDown /> : <FaArrowUp />) : null
+  }
+
+  const renderDefence = ({ passive, save }: { passive?: any, save?: any }) => {
+    if (passive) {
+      switch(passive.statistic) {
+        case 'ac': return 'AC'
+        case 'fortitude-dc': return 'Fortitude DC'
+        case 'reflex-dc': return 'Reflex DC'
+        case 'will-dc': return 'Will DC'
+        default: return '-'
+      }
+    } else if (save) {
+      const basicSuffix = save.basic ? ' (basic)' : ''
+      switch(save.statistic) {
+        case 'fort': return 'Fortitude' + basicSuffix
+        case 'ref': return 'Reflex' + basicSuffix
+        case 'will': return 'Will' + basicSuffix
+        default: return '-'
+      }
+    }
+    return '-'
   }
 
   return (
@@ -53,14 +75,19 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
       <thead>
         <tr>
           {[
-            ['Name', 'name'],
-            ['Level', 'level'],
-            ['Casting Time', 'castingTime'],
-            ['Traditions', 'traditions'],
-            ['Traits', 'traits'],
-          ].map(([header, field]) => (
-            <th className={field} key={field} onClick={() => toggleSort(field)}>
-              {header}{renderSortArrow(field)}
+            ['Name', 'name', 'w-14', true],
+            ['Level', 'level', 'w-8', true],
+            ['Casting Time', 'castingTime', 'w-8', true],
+            ['Target', 'target', 'w-14', false],
+            ['Defense', 'defense', 'w-14', false],
+            ['Range', 'range', 'w-14', false],
+            ['Area', 'area', 'w-14', false],
+            ['Duration', 'duration', 'w-14', false],
+            // ['Traditions', 'traditions'],
+            // ['Traits', 'traits']
+          ].map(([header, field, widthClass, sortable]) => (
+            <th className={`${widthClass}${ sortable ? ' sortable' : ''}`} key={`${field}`} onClick={() => toggleSort(field as string)}>
+              {header}{renderSortArrow(field as string, sortable as boolean)}
             </th>
           ))}
         </tr>
@@ -71,8 +98,13 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
             <td>{spell.name}</td>
             <td>{spell.level}</td>
             <td>{spell.castingTime}</td>
-            <td>{spell.traditions.join(', ')}</td>
-            <td>{spell.traits.join(', ')}</td>
+            <td>{tableStringValue(spell.target)}</td>
+            <td>{renderDefence(spell.defense ?? {})}</td>
+            <td>{tableStringValue(spell.range)}</td>
+            <td>{tableStringValue(spell.area?.details)}</td>
+            <td>{tableStringValue(spell.duration.value)}{spell.duration.sustained ? ' (sustained)' : ''}</td>
+            {/* <td>{spell.traditions.join(', ')}</td> */}
+            {/* <td>{spell.traits.join(', ')}</td> */}
           </tr>
         ))}
       </tbody>

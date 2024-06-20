@@ -8,3 +8,10 @@ export function parseNumber(value: string): number | undefined {
   }
   return parseInt(value)
 }
+
+export function tableStringValue(value: string): string {
+  if (!value || value === '') {
+    return '-'
+  }
+  return value
+}
