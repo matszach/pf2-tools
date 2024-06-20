@@ -2,6 +2,7 @@ import "./AppPaginator.scss"
 import { Pagination } from "react-bootstrap"
 import { PAGINATOR_ELIPSIS, getPaginatorMiddleButtons } from "../../utils/calculation.util"
 import { useWindowSize } from "usehooks-ts"
+import { PAGINATOR_BREAKPOINT } from "../../const/numbers.const"
 
 function AppPaginator(
   { size, total, selected, onChange }:
@@ -48,7 +49,7 @@ function AppPaginator(
 
   return (
     <div className="AppPaginator">
-      {window.width > 600 ? desktopPagination() : mobilePagination()}
+      {window.width > PAGINATOR_BREAKPOINT ? desktopPagination() : mobilePagination()}
     </div>
   )
 }
