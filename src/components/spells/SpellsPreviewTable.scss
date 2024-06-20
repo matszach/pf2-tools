@@ -1,11 +1,37 @@
 
 .SpellsPreviewTable {
-  thead th.sortable {
-    cursor: pointer;
-    white-space: nowrap;
-    svg {
-      margin-left: 5px;
-      margin-bottom: 2px;
+  thead th {
+    &.sortable {
+      cursor: pointer;
+      white-space: nowrap;
+      svg {
+        margin-left: 5px;
+        margin-bottom: 2px;
+      }
+    }
+    &.name {
+      width: 20%;
+    }
+    &.level {
+      width: 5%;
+    }
+    &.castingTime {
+      width: 10%;
+    }
+    &.target {
+      width: 13%;
+    }
+    &.defense {
+      width: 13%;
+    }
+    &.range {
+      width: 13%;
+    }
+    &.area {
+      width: 13%;
+    }
+    &.duration {
+      width: 13%;
     }
   }
   tbody tr {

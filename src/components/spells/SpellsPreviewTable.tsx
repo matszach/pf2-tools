@@ -59,7 +59,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
         default: return '-'
       }
     } else if (save) {
-      const basicSuffix = save.basic ? ' (basic)' : ''
+      const basicSuffix = save.basic ? ', basic' : ''
       switch(save.statistic) {
         case 'fort': return 'Fortitude' + basicSuffix
         case 'ref': return 'Reflex' + basicSuffix
@@ -108,7 +108,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
             <td>{renderDefence(spell.defense ?? {})}</td>
             <td>{tableStringValue(spell.range)}</td>
             <td>{tableStringValue(spell.area?.details)}</td>
-            <td>{tableStringValue(spell.duration.value)}{spell.duration.sustained ? ' (sustained)' : ''}</td>
+            <td>{tableStringValue(spell.duration.value)}{spell.duration.sustained ? ', sustained' : ''}</td>
             {/* <td>{spell.traditions.join(', ')}</td> */}
             {/* <td>{spell.traits.join(', ')}</td> */}
           </tr>

@@ -12,6 +12,8 @@ export function parseNumber(value: string): number | undefined {
 export function tableStringValue(value: string): string {
   if (!value || value === '') {
     return '-'
+  } else if (value.length > 20) {
+    return `${value.slice(0, 20)}...`
   }
   return value
 }
