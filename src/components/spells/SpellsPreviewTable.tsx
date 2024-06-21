@@ -17,7 +17,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
 
   const showModal = (spell: Spell) => {
     setSpellInModal(spell)
-    setSearchParams({ spell: spell.key })
+    setSearchParams({ key: spell.key })
   }
 
   const closeModal = () => {
@@ -37,7 +37,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
   }, [sortParams])
 
   useEffect(() => {
-    const searchKey = searchParams.get('spell')
+    const searchKey = searchParams.get('key')
     if (searchKey) {
       provider.spellApi.get(searchKey).then((spell) => {
         setSpellInModal(spell)
@@ -49,6 +49,8 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
     return (sortParams.field === field) ? (sortParams.direction === 1 ? <FaArrowDown /> : <FaArrowUp />) : null
   }
 
+  // TODO simplify in model how defense is stored
+  // AC, FORT, REF, WILL (save, basic save, dc)
   const renderDefense = ({ passive, save }: { passive?: any, save?: any }) => {
     if (passive) {
       switch(passive.statistic) {
