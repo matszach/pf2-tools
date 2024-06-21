@@ -7,7 +7,7 @@ import { capitalize } from '../../utils/format.util'
 function SpellModal ({ spell, onHide }: { spell: Spell | undefined, onHide: () => void }) {
 
   return (
-    <Modal show={!!spell} onHide={onHide}>
+    <Modal size='xl' show={!!spell} onHide={onHide}>
       <Modal.Header closeButton>
         <Modal.Title>
           <span>{spell?.name}</span>
