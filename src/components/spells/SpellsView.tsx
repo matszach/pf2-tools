@@ -25,14 +25,12 @@ function SpellsView() {
     setPage(new Page(PAGE_SIZE, 1))
   }, [filterParams])
 
-  const paginator = () => {
-    return (
-      <AppPaginator 
-        size={page.size} selected={page.selected} total={spells.length} 
-        onChange={n => setPage(new Page(PAGE_SIZE, n))} 
-      />
-    )
-  }
+  const paginator = () => (
+    <AppPaginator 
+      size={page.size} selected={page.selected} total={spells.length} 
+      onChange={n => setPage(new Page(PAGE_SIZE, n))} 
+    />
+  )
 
   return (
     <div className='SpellsView'>

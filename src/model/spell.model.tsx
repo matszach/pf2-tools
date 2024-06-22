@@ -8,7 +8,7 @@ export interface Spell {
   vttDescription: string;
   cost: string;
   area: any; // todo
-  defense: any; // todo
+  defense: string;
   source: Source;
   range: string;
   target: string;

@@ -28,18 +28,12 @@ export function spellQuery(
       return true
     })
     .filter(spell => {
-      if (defense === SpellDefenseEnum.NONE) {
+      if (defense === SpellDefenseEnum.ALL) {
+        return true
+      } else if (defense === SpellDefenseEnum.NONE) {
         return !spell.defense
-      } else if (defense === SpellDefenseEnum.AC) {
-        return spell.defense?.passive?.statistic === 'ac'
-      } else if (defense === SpellDefenseEnum.FORT) {
-        return (spell.defense?.passive?.statistic === 'fortitude-dc') || (spell.defense?.save?.statistic === 'fortitude')
-      } else if (defense === SpellDefenseEnum.REF) {
-        return (spell.defense?.passive?.statistic === 'reflex-dc') || (spell.defense?.save?.statistic === 'reflex')
-      } else if (defense === SpellDefenseEnum.WILL) {
-        return (spell.defense?.passive?.statistic === 'will-dc') || (spell.defense?.save?.statistic === 'will')
       }
-      return true
+      return spell.defense?.includes(defense ?? '')
     })
     .filter(spell => {
       if (castingTime === SpellCastingTimeEnum.ONE_ACTION) {
@@ -64,8 +58,8 @@ export function spellQuery(
       return true
     })
     .sort((s1: Spell, s2: Spell) => {
-      const s1v = s1[field as keyof Spell];
-      const s2v = s2[field as keyof Spell];
+      const s1v = s1[field as keyof Spell] ?? '';
+      const s2v = s2[field as keyof Spell] ?? '';
       if (s1v === s2v) {
         return 0
       }

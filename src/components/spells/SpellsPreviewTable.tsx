@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from 'react-router-dom';
 import provider from '../../services/provider';
 import SpellModal from './SpellModal';
-import { tableStringValue } from '../../utils/format.util';
+import { defenseTableValue, tableStringValue } from '../../utils/format.util';
 
 function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sortParams: SpellQuerySortParameters) => void }) {
 
@@ -49,29 +49,6 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
     return (sortParams.field === field) ? (sortParams.direction === 1 ? <FaArrowDown /> : <FaArrowUp />) : null
   }
 
-  // TODO simplify in model how defense is stored
-  // AC, FORT, REF, WILL (save, basic save, dc)
-  const renderDefense = ({ passive, save }: { passive?: any, save?: any }) => {
-    if (passive) {
-      switch(passive.statistic) {
-        case 'ac': return 'AC'
-        case 'fortitude-dc': return 'Fortitude DC'
-        case 'reflex-dc': return 'Reflex DC'
-        case 'will-dc': return 'Will DC'
-        default: return '-'
-      }
-    } else if (save) {
-      const basicSuffix = save.basic ? ', basic' : ''
-      switch(save.statistic) {
-        case 'fortitude': return 'Fortitude' + basicSuffix
-        case 'reflex': return 'Reflex' + basicSuffix
-        case 'will': return 'Will' + basicSuffix
-        default: return '-'
-      }
-    }
-    return '-'
-  }
-
   return (
     <Table className="SpellsPreviewTable" striped bordered hover responsive>
       <thead>
@@ -81,7 +58,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
             ['Level', 'level', true],
             ['Casting Time', 'castingTime', true],
             ['Target', 'target', false],
-            ['Defense', 'defense', false],
+            ['Defense', 'defense', true],
             ['Range', 'range', false],
             ['Area', 'area', false],
             ['Duration', 'duration', false],
@@ -107,7 +84,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
             <td>{spell.level}</td>
             <td>{spell.castingTime}</td>
             <td>{tableStringValue(spell.target)}</td>
-            <td>{renderDefense(spell.defense ?? {})}</td>
+            <td>{defenseTableValue(spell.defense)}</td>
             <td>{tableStringValue(spell.range)}</td>
             <td>{tableStringValue(spell.area?.details)}</td>
             <td>{tableStringValue(spell.duration.value)}{spell.duration.sustained ? ', sustained' : ''}</td>
