@@ -1,8 +1,9 @@
-import { SpellCastingTimeEnum, Spell, SpellDefenseEnum, TraitsToggleStateEnum } from "../../model/spell.model";
+import { SpellCastingTimeEnum, Spell, SpellDefenseEnum, TraitsToggleStateEnum, SpellDurationEnum } from "../../model/spell.model";
+import { valuesExcept } from "../../utils/calculation.util";
 import { SpellQueryFilterParameters, SpellQuerySortParameters } from "./data-query.model";
 
 export function spellQuery(
-  { name, tradition, traits, level, castingTime, defense }: SpellQueryFilterParameters, 
+  { name, tradition, traits, level, castingTime, defense, duration }: SpellQueryFilterParameters, 
   { field, direction = 1 }: SpellQuerySortParameters
 ): (spells: Spell[]) => Spell[] {
   return (spells: Spell[]) => spells
@@ -34,6 +35,22 @@ export function spellQuery(
         return !spell.defense
       }
       return spell.defense?.includes(defense ?? '')
+    })
+    .filter(spell => {
+      if (duration === SpellDurationEnum.ALL) {
+        return true
+      } else if (duration === SpellDurationEnum.INSTANT) {
+        return  !spell.duration?.value
+      }
+      for (let v of valuesExcept(SpellDurationEnum, ['all', 'instant', 'other'])) {
+        if (duration === v) {
+          return spell.duration?.value === v
+        }
+      }
+      if (duration === SpellDurationEnum.OTHER) {
+        return !!spell.duration?.value && !Object.values(SpellDurationEnum).includes(spell.duration?.value)
+      }
+      return false
     })
     .filter(spell => {
       if (castingTime === SpellCastingTimeEnum.ONE_ACTION) {

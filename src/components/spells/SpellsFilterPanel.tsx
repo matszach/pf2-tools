@@ -1,6 +1,6 @@
 import './SpellsFilterPanel.scss';
 import { useEffect, useState } from 'react';
-import { SpellCastingTimeEnum, SPELL_TRAITS, SpellDefenseEnum, SpellTraditionEnum, TraitsSelection } from '../../model/spell.model';
+import { SpellCastingTimeEnum, SPELL_TRAITS, SpellDefenseEnum, SpellTraditionEnum, TraitsSelection, SpellDurationEnum } from '../../model/spell.model';
 import { SpellQueryFilterParameters } from '../../services/query/data-query.model';
 import { Col, Row } from 'react-bootstrap';
 import AppNumberControl from '../controls/AppNumberControl';
@@ -18,7 +18,7 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
   const [castingTime, setCastingTime] = useState<SpellCastingTimeEnum>(SpellCastingTimeEnum.ALL)
   const [range, setRange] = useState<string>('all') // TODO make this into an enum
   const [area, setArea] = useState<string>('all') // TODO make this into an enum
-  const [duration, setDuration] = useState<string>('all') // TODO make this into an enum
+  const [duration, setDuration] = useState<SpellDurationEnum>(SpellDurationEnum.ALL)
   const [target, setTarget] = useState<string>('all') // TODO make this into an enum
   const [defense, setDefense] = useState<SpellDefenseEnum>(SpellDefenseEnum.ALL)
 
@@ -52,7 +52,9 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
         <Col sm={3} xs={6} className='mt-3'>
           <AppSelectFromEnum label='Defense' valuesEnum={SpellDefenseEnum} value={defense} onChange={setDefense}/>
         </Col>
-        <Col sm={3} xs={6} className='mt-3'>duration</Col>
+        <Col sm={3} xs={6} className='mt-3'>
+          <AppSelectFromEnum label='Duration' valuesEnum={SpellDurationEnum} value={duration} onChange={setDuration}/>
+        </Col>
       </Row>
       <Row>
         <Col className='mt-3'>

@@ -75,3 +75,14 @@ export enum SpellCastingTimeEnum {
   HOURS = 'hours', 
   DAYS = 'days'
 }
+
+export enum SpellDurationEnum {
+  ALL = 'all',
+  INSTANT = 'instant',
+  ONE_ROUND = '1 round',
+  ONE_MINUTE = '1 minute',
+  TEN_MINUTES = '10 minutes',
+  ONE_HOUR = '1 hour',
+  EIGHT_HOURS = '8 hours',
+  OTHER = 'other'
+}

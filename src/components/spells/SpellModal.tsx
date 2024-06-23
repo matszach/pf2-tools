@@ -2,7 +2,7 @@ import './SpellsView.scss'
 import { Badge, Button, Modal } from "react-bootstrap"
 import { Spell } from "../../model/spell.model"
 import parse from 'html-react-parser'
-import { capitalize, defenseStringValue, durationStringValue } from '../../utils/format.util'
+import { areaStringValue, capitalize, defenseStringValue, durationStringValue } from '../../utils/format.util'
 import { useState } from 'react'
 import { isLocal } from '../../utils/env.utils'
 
@@ -33,10 +33,10 @@ function SpellModal ({ spell, onHide }: { spell: Spell | undefined, onHide: () =
         {/* TODO a function to retrn images for these */}
         {descRow('Casting time', spell?.castingTime)} 
         {descRow('Range', spell?.range)}
-        {descRow('Area', 'TODO')}
+        {descRow('Area', areaStringValue(spell?.area ?? {}, Infinity))}
         {descRow('Target', spell?.target)}
         {descRow('Defense', defenseStringValue(spell?.defense, ''))}
-        {descRow('Duration', durationStringValue(spell?.duration ?? {}, 30))}
+        {descRow('Duration', durationStringValue(spell?.duration ?? {}, Infinity))}
         {descRow('Cost', spell?.cost)}
         {descRow('Requirements', spell?.requirements)}
         <hr/>

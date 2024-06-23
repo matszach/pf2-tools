@@ -21,6 +21,10 @@ export function nextIn(currentValue: any, allValues: any[]) {
   return allValues[0];
 }
 
+export function valuesExcept(enums: any, valuesToExclude: string[]) {
+  return Object.values(enums).filter((value) => !valuesToExclude.includes(value as string));
+}
+
 export function getPaginatorMiddleButtons(selectedPage: number, maxPages: number, threshold = 11): number[] {
   if (maxPages < threshold) {
     return numbers(1, maxPages);
