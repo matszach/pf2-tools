@@ -12,6 +12,15 @@ export function clamp(value: number, min: number, max: number): number {
   return Math.min(Math.max(value, min), max);
 }
 
+export function nextIn(currentValue: any, allValues: any[]) {
+  const indexOf = allValues.indexOf(currentValue);
+  console.log({ currentValue, indexOf, allValues });
+  if (indexOf === -1 || indexOf < allValues.length - 1) {
+    return allValues[indexOf + 1];
+  }
+  return allValues[0];
+}
+
 export function getPaginatorMiddleButtons(selectedPage: number, maxPages: number, threshold = 11): number[] {
   if (maxPages < threshold) {
     return numbers(1, maxPages);

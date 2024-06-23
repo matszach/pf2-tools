@@ -62,7 +62,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
             ['Range', 'range', false],
             ['Area', 'area', false],
             ['Duration', 'duration', false],
-            // ['Traditions', 'traditions'],
+            ['Traditions', 'traditions', true],
             // ['Traits', 'traits']
           ].map(([header, field, sortable]) => (
             sortable ? (
@@ -88,7 +88,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
             <td>{tableStringValue(spell.range)}</td>
             <td>{tableStringValue(spell.area?.details)}</td>
             <td>{tableStringValue(spell.duration.value)}{spell.duration.sustained ? ', sustained' : ''}</td>
-            {/* <td>{spell.traditions.join(', ')}</td> */}
+            <td>{spell.traditions.join(', ')}</td>
             {/* <td>{spell.traits.join(', ')}</td> */}
           </tr>
         ))}

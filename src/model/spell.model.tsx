@@ -22,7 +22,21 @@ export interface Spell {
   requirements: string;
 }
 
-export const SPELL_TRAITS = {
+export interface TraitsGroups {
+  [key: string]: string[]
+}
+
+export enum TraitsToggleStateEnum {
+  NONE = 0,
+  ON = 1,
+  OFF = -1
+}
+
+export interface TraitsSelection {
+  [key: string]: TraitsToggleStateEnum
+}
+
+export const SPELL_TRAITS: TraitsGroups = {
   ALIGNMENT: ['chaotic', 'evil', 'good', 'lawful', 'sanctified', 'holy', 'unholy'],
   CLASS: ['bard', 'champion', 'cleric', 'druid', 'magus', 'monk', 'oracle', 'psychic', 'ranger', 'sorcerer', 'summoner', 'witch', 'wizard'],
   DELIVERY: ['aura', 'attack', 'auditory', 'concentrate', 'contingency', 'incapacitation', 'inhaled', 'linguistic', 'nonlethal', 'olfactory', 'manipulate', 'spellshape', 'stance', 'subtle', 'visual'],
@@ -32,9 +46,13 @@ export const SPELL_TRAITS = {
   TYPE: ['cantrip', 'composition', 'focus', 'hex', 'ritual']
 };
 
-export const SPELL_TRADITIONS = [
-  'arcane', 'divine', 'primal', 'occult'
-]
+export enum SpellTraditionEnum {
+  ALL = 'all',
+  ARCANE = 'arcane',
+  DIVINE = 'divine',
+  PRIMAL = 'primal',
+  OCCULT = 'occult'
+}
 
 export enum SpellDefenseEnum {
   ALL = 'all',

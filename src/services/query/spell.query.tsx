@@ -1,4 +1,4 @@
-import { SpellCastingTimeEnum, Spell, SpellDefenseEnum } from "../../model/spell.model";
+import { SpellCastingTimeEnum, Spell, SpellDefenseEnum, TraitsToggleStateEnum } from "../../model/spell.model";
 import { SpellQueryFilterParameters, SpellQuerySortParameters } from "./data-query.model";
 
 export function spellQuery(
@@ -18,9 +18,9 @@ export function spellQuery(
     .filter(spell => {
       if (traits) {
         for (const trait in traits) {
-          if (traits[trait] === 1 && !spell.traits.includes(trait)) {
+          if (traits[trait] === TraitsToggleStateEnum.ON && !spell.traits.includes(trait)) {
             return false
-          } else if (traits[trait] === -1 && spell.traits.includes(trait)) {
+          } else if (traits[trait] === TraitsToggleStateEnum.OFF && spell.traits.includes(trait)) {
             return false
           }
         }

@@ -10,28 +10,31 @@
       }
     }
     &.name {
-      width: 20%;
+      width: 16%;
     }
     &.level {
       width: 5%;
     }
     &.castingTime {
-      width: 10%;
+      width: 8%;
     }
     &.target {
-      width: 13%;
+      width: 12%;
     }
     &.defense {
-      width: 13%;
+      width: 11%;
     }
     &.range {
-      width: 13%;
+      width: 11%;
     }
     &.area {
-      width: 13%;
+      width: 12%;
     }
     &.duration {
-      width: 13%;
+      width: 11%;
+    }
+    &.tradition {
+      width: 14%;
     }
   }
   tbody tr {
