@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams } from 'react-router-dom';
 import provider from '../../services/provider';
 import SpellModal from './SpellModal';
-import { defenseTableValue, tableStringValue } from '../../utils/format.util';
+import { defenseStringValue, tableStringValue } from '../../utils/format.util';
 
 function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sortParams: SpellQuerySortParameters) => void }) {
 
@@ -84,7 +84,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
             <td>{spell.level}</td>
             <td>{spell.castingTime}</td>
             <td>{tableStringValue(spell.target)}</td>
-            <td>{defenseTableValue(spell.defense)}</td>
+            <td>{defenseStringValue(spell.defense)}</td>
             <td>{tableStringValue(spell.range)}</td>
             <td>{tableStringValue(spell.area?.details)}</td>
             <td>{tableStringValue(spell.duration.value)}{spell.duration.sustained ? ', sustained' : ''}</td>

@@ -19,7 +19,7 @@ export function tableStringValue(value: string, maxLength: number = 20): string 
 }
 
 // TODO, content (including the '-')
-export function defenseTableValue(value: string): string {
+export function defenseStringValue(value: string = '', defaultValue: string = '-'): string {
   return {
     'ac': 'AC',
     'reflex': 'Reflex',
@@ -31,5 +31,5 @@ export function defenseTableValue(value: string): string {
     'will': 'Will',
     'will-basic': 'Will, basic',
     'will-dc': 'Will DC',
-  }[value] ?? '-'
+  }[value] ?? defaultValue
 }
