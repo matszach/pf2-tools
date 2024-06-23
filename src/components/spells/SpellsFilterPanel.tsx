@@ -11,7 +11,7 @@ import AppTraitsSelector from '../controls/AppTraitSelector';
 function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFilterParameters) => void }) {
 
   const [name, setName] = useState<string>('')
-  const [tradition, setTradition] = useState<SpellTraditionEnum>(SpellTraditionEnum.ALL) // TODO make this into an enum
+  const [tradition, setTradition] = useState<SpellTraditionEnum>(SpellTraditionEnum.ALL)
   const [traits, setTraits] = useState<TraitsSelection>({})
   const [minLevel, setMinLevel] = useState<number | undefined>(1)
   const [maxLevel, setMaxLevel] = useState<number | undefined>(10)

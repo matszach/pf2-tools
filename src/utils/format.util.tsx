@@ -18,6 +18,11 @@ export function tableStringValue(value: string, maxLength: number = 20): string 
   return value
 }
 
+// TODO, content
+export function durationStringValue({ value, sustained }: { value: string, sustained: boolean }, maxLength: number = 20): string {
+  return tableStringValue(value + (sustained ? ', sustained' : ''), maxLength)
+}
+
 // TODO, content (including the '-')
 export function defenseStringValue(value: string = '', defaultValue: string = '-'): string {
   return {
@@ -33,3 +38,4 @@ export function defenseStringValue(value: string = '', defaultValue: string = '-
     'will-dc': 'Will DC',
   }[value] ?? defaultValue
 }
+

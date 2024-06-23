@@ -1,8 +1,8 @@
 import './SpellsView.scss'
-import { Badge, Button, Col, Modal, Row } from "react-bootstrap"
+import { Badge, Button, Modal } from "react-bootstrap"
 import { Spell } from "../../model/spell.model"
 import parse from 'html-react-parser'
-import { capitalize, defenseStringValue } from '../../utils/format.util'
+import { capitalize, defenseStringValue, durationStringValue } from '../../utils/format.util'
 import { useState } from 'react'
 import { isLocal } from '../../utils/env.utils'
 
@@ -10,7 +10,7 @@ function SpellModal ({ spell, onHide }: { spell: Spell | undefined, onHide: () =
   const [useVTT, setUseVTT] = useState(false)
 
   const descRow = (label: string, value?: string) => (
-    value ? (
+    (!!value && value !== '-') ? (
       <div><strong>{label}: </strong>{value}</div>
     ) : <></>
   )
@@ -36,6 +36,7 @@ function SpellModal ({ spell, onHide }: { spell: Spell | undefined, onHide: () =
         {descRow('Area', 'TODO')}
         {descRow('Target', spell?.target)}
         {descRow('Defense', defenseStringValue(spell?.defense, ''))}
+        {descRow('Duration', durationStringValue(spell?.duration ?? {}, 30))}
         {descRow('Cost', spell?.cost)}
         {descRow('Requirements', spell?.requirements)}
         <hr/>
