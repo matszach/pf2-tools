@@ -1,11 +1,13 @@
 import './SpellsView.scss'
-import { Badge, Col, Modal, Row } from "react-bootstrap"
+import { Badge, Button, Col, Modal, Row } from "react-bootstrap"
 import { Spell } from "../../model/spell.model"
 import parse from 'html-react-parser'
 import { capitalize } from '../../utils/format.util'
+import { useState } from 'react'
+import { isLocal } from '../../utils/env.utils'
 
 function SpellModal ({ spell, onHide }: { spell: Spell | undefined, onHide: () => void }) {
-
+  const [useVTT, setUseVTT] = useState(false)
   return (
     <Modal size='xl' show={!!spell} onHide={onHide}>
       <Modal.Header closeButton>
@@ -20,8 +22,14 @@ function SpellModal ({ spell, onHide }: { spell: Spell | undefined, onHide: () =
           <Badge className='m-1' bg='secondary' key={trait}>{capitalize(trait)}</Badge>
         ))}</p>
         <hr/>
-        <p>{parse(spell?.description ?? '')}</p>
+        <p>{parse((useVTT ? spell?.vttDescription : spell?.description) ?? '')}</p>
       </Modal.Body>
+      {/* local debug vtt description display */}
+      {isLocal() ? (
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setUseVTT(!useVTT)}>{useVTT ? 'Use Parsed' : 'Use VTT'}</Button>
+        </Modal.Footer>
+      ) : <></>}
     </Modal>
   )
 }
