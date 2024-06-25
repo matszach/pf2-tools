@@ -5,6 +5,7 @@ import AppNavbar from './components/navbar/Nav';
 import { AppRoutes } from './const/routes.const';
 import { content } from './content/content';
 import SpellsView from './components/spells/spells-view/SpellsView';
+import RandomSpellsView from './components/spells/random-spells/RandomSpellsView';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
             <div>{content.workInProgress}</div>
           }/>
           <Route path={AppRoutes.RANDOM.SPELLS} element={
-            <div>{content.workInProgress}</div>
+            <RandomSpellsView></RandomSpellsView>
           }/>
           <Route path={AppRoutes.RANDOM.LOOT} element={
             <div>{content.workInProgress}</div>

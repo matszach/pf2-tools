@@ -1,4 +1,5 @@
 import { Source } from "./source.model";
+import { TraitsGroups } from "./traits.model";
 
 export interface Spell {
   name: string;
@@ -20,20 +21,6 @@ export interface Spell {
   traits: string[];
   rarity: string;
   requirements: string;
-}
-
-export interface TraitsGroups {
-  [key: string]: string[]
-}
-
-export enum TraitsToggleStateEnum {
-  NONE = 0,
-  ON = 1,
-  OFF = -1
-}
-
-export interface TraitsSelection {
-  [key: string]: TraitsToggleStateEnum
 }
 
 export const SPELL_TRAITS: TraitsGroups = {

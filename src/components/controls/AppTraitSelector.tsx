@@ -1,8 +1,8 @@
 import { Accordion, Badge } from "react-bootstrap";
-import { TraitsGroups, TraitsSelection, TraitsToggleStateEnum } from "../../model/spell.model";
 import { useEffect, useState } from "react";
 import { nextIn } from "../../utils/calculation.util";
 import { Fmt } from "../../utils/format.util";
+import { TraitsGroups, TraitsSelection, TraitsToggleStateEnum } from "../../model/traits.model";
 
 export default function AppTraitsSelector(
   { label = '', traitGroups, onChange = () => {} }:

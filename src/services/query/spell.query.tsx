@@ -1,4 +1,5 @@
-import { SpellCastingTimeEnum, Spell, SpellDefenseEnum, TraitsToggleStateEnum, SpellDurationEnum } from "../../model/spell.model";
+import { SpellCastingTimeEnum, Spell, SpellDefenseEnum, SpellDurationEnum } from "../../model/spell.model";
+import { TraitsToggleStateEnum } from "../../model/traits.model";
 import { valuesExcept } from "../../utils/calculation.util";
 import { SpellQueryFilterParameters, SpellQuerySortParameters } from "./data-query.model";
 

@@ -1,6 +1,6 @@
 import './SpellsFilterPanel.scss';
 import { useEffect, useState } from 'react';
-import { SpellCastingTimeEnum, SPELL_TRAITS, SpellDefenseEnum, SpellTraditionEnum, TraitsSelection, SpellDurationEnum } from '../../../model/spell.model';
+import { SpellCastingTimeEnum, SPELL_TRAITS, SpellDefenseEnum, SpellTraditionEnum, SpellDurationEnum } from '../../../model/spell.model';
 import { SpellQueryFilterParameters } from '../../../services/query/data-query.model';
 import { Col, Row } from 'react-bootstrap';
 import AppNumberControl from '../../controls/AppNumberControl';
@@ -8,6 +8,7 @@ import AppTextControl from '../../controls/AppTextControl';
 import AppSelectFromEnum from '../../controls/AppSelectFromEnum';
 import AppTraitsSelector from '../../controls/AppTraitSelector';
 import { content } from '../../../content/content';
+import { TraitsSelection } from '../../../model/traits.model';
 
 function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFilterParameters) => void }) {
 

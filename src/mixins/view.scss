@@ -1,0 +1,6 @@
+@mixin view {
+  width: clamp(800px, 90vw, 1600px);
+  max-width: calc(100vw - 1em);
+  margin: auto;
+  margin-top: 0.5em;
+}
