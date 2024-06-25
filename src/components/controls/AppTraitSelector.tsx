@@ -12,7 +12,6 @@ export default function AppTraitsSelector(
   const [traits, setTraits] = useState<TraitsSelection>({})
 
   const toggleTrait = (trait: string) => {
-    console.log(trait)
     setTraits({
       ...traits,
       [trait]: nextIn(traits[trait], [

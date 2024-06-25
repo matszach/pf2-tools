@@ -4,7 +4,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import AppNavbar from './components/navbar/Nav';
 import { AppRoutes } from './const/routes.const';
 import { content } from './content/content';
-import SpellsView from './components/spells/SpellsView';
+import SpellsView from './components/spells/spells-view/SpellsView';
 
 function App() {
   return (

@@ -1,14 +1,14 @@
 import './SpellsPreviewTable.scss';
 import { Table } from "react-bootstrap";
-import { Spell } from "../../model/spell.model";
-import { SpellQuerySortParameters } from "../../services/query/data-query.model";
+import { Spell } from "../../../model/spell.model";
+import { SpellQuerySortParameters } from "../../../services/query/data-query.model";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa"; 
 import { useEffect, useState } from "react";
 import { useSearchParams } from 'react-router-dom';
-import provider from '../../services/provider';
-import SpellModal from './SpellModal';
-import { Fmt } from '../../utils/format.util';
-import { content } from '../../content/content';
+import provider from '../../../services/provider';
+import SpellModal from '../spell-modal/SpellModal';
+import { Fmt } from '../../../utils/format.util';
+import { content } from '../../../content/content';
 
 function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sortParams: SpellQuerySortParameters) => void }) {
 

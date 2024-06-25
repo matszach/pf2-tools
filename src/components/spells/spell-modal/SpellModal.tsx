@@ -1,11 +1,11 @@
-import './SpellsView.scss'
+import './SpellModal.scss'
 import { Badge, Button, Modal } from "react-bootstrap"
-import { Spell } from "../../model/spell.model"
+import { Spell } from "../../../model/spell.model"
 import parse from 'html-react-parser'
 import { useState } from 'react'
-import { isLocal } from '../../utils/env.utils'
-import { Fmt } from '../../utils/format.util'
-import { content } from '../../content/content'
+import { isLocal } from '../../../utils/env.utils'
+import { Fmt } from '../../../utils/format.util'
+import { content } from '../../../content/content'
 
 function SpellModal ({ spell, onHide }: { spell: Spell | undefined, onHide: () => void }) {
   const [useVTT, setUseVTT] = useState(false)
@@ -42,6 +42,7 @@ function SpellModal ({ spell, onHide }: { spell: Spell | undefined, onHide: () =
         {row(cn.cost, spell?.cost)}
         {row(cn.requirements, spell?.requirements)}
         <hr/>
+        {/* tables need styling somehow, eg Abyssal Wrath */}
         <p>{parse((useVTT ? spell?.vttDescription : spell?.description) ?? '')}</p>
       </Modal.Body>
       {/* local debug vtt description display */}
