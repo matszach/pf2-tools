@@ -9,13 +9,14 @@ import { content } from '../../content/content'
 
 function SpellModal ({ spell, onHide }: { spell: Spell | undefined, onHide: () => void }) {
   const [useVTT, setUseVTT] = useState(false)
+  const cn = content.spells.modal
 
-  const descRow = (label: string, value?: string) => (
+  const row = (label: string, value?: string) => (
     (!!value && value !== '-') ? (
       <div><strong>{label}: </strong>{value}</div>
     ) : <></>
   )
-
+  
   return (
     <Modal className='SpellModal' size='xl' show={!!spell} onHide={onHide}>
       <Modal.Header closeButton>
@@ -30,16 +31,16 @@ function SpellModal ({ spell, onHide }: { spell: Spell | undefined, onHide: () =
           <Badge className='m-1' bg='secondary' key={trait}>{Fmt.capitalize(trait)}</Badge>
         ))}</div>
         <hr/>
-        {descRow('Traditions', spell?.traditions?.join(', '))}
+        {row(cn.traditions, Fmt.array(spell?.traditions, ''))}
         {/* TODO a function to retrn images for these */}
-        {descRow('Casting time', spell?.castingTime)} 
-        {descRow('Range', spell?.range)}
-        {descRow('Area', Fmt.area(spell?.area))}
-        {descRow('Target', spell?.target)}
-        {descRow('Defense', Fmt.enum(spell?.defense, content.enumMap.defense))}
-        {descRow('Duration', Fmt.duration(spell?.duration))}
-        {descRow('Cost', spell?.cost)}
-        {descRow('Requirements', spell?.requirements)}
+        {row(cn.castingTime, spell?.castingTime)} 
+        {row(cn.range, spell?.range)}
+        {row(cn.area, Fmt.area(spell?.area, ''))}
+        {row(cn.target, spell?.target)}
+        {row(cn.defense, Fmt.enum(spell?.defense, content.enumMap.defense))}
+        {row(cn.duration, Fmt.duration(spell?.duration))}
+        {row(cn.cost, spell?.cost)}
+        {row(cn.requirements, spell?.requirements)}
         <hr/>
         <p>{parse((useVTT ? spell?.vttDescription : spell?.description) ?? '')}</p>
       </Modal.Body>

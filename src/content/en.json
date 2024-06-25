@@ -24,6 +24,31 @@
       "defence": "Defence",
       "duration": "Duration",
       "traits": "Traits"
+    },
+    "table": {
+      "name": "Name",
+      "rank": "Rank",
+      "traditions": "Traditions",
+      "castingTime": "Casting Time",
+      "range": "Range",
+      "area": "Area",
+      "target": "Target",
+      "defense": "Defense",
+      "duration": "Duration",
+      "cost": "Cost",
+      "requirements": "Requirements",
+      "traits": "Traits"
+    },
+    "modal": {
+      "traditions": "Traditions",
+      "castingTime": "Casting Time",
+      "range": "Range",
+      "area": "Area",
+      "target": "Target",
+      "defense": "Defense",
+      "duration": "Duration",
+      "cost": "Cost",
+      "requirements": "Requirements"
     }
   },
   "enumMap": {

@@ -22,6 +22,7 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
   const [duration, setDuration] = useState<SpellDurationEnum>(SpellDurationEnum.ALL)
   const [target, setTarget] = useState<string>('all') // TODO make this into an enum
   const [defense, setDefense] = useState<SpellDefenseEnum>(SpellDefenseEnum.ALL)
+  const cn = content.spells.filter
 
   useEffect(() => {
     onFilter({ 
@@ -34,32 +35,32 @@ function SpellsFilterPanel({ onFilter }: { onFilter: (queryParams: SpellQueryFil
     <div className='SpellsFilterPanel mb-3'>
       <Row>
         <Col sm={6} className='mt-3'>
-          <AppTextControl label={content.spells.filter.name} value={name} onChange={setName}/>
+          <AppTextControl label={cn.name} value={name} onChange={setName}/>
         </Col>
         <Col sm={3} xs={6} className='mt-3'>
-          <AppNumberControl min={1} max={10} label={content.spells.filter.minRank} value={minLevel} onChange={setMinLevel}/>
+          <AppNumberControl min={1} max={10} label={cn.minRank} value={minLevel} onChange={setMinLevel}/>
         </Col>
         <Col sm={3} xs={6} className='mt-3'>
-          <AppNumberControl min={1} max={10} label={content.spells.filter.maxRank} value={maxLevel} onChange={setMaxLevel}/>
+          <AppNumberControl min={1} max={10} label={cn.maxRank} value={maxLevel} onChange={setMaxLevel}/>
         </Col>
       </Row>
       <Row>
         <Col sm={3} xs={6} className='mt-3'>
-          <AppSelectFromEnum label={content.spells.filter.tradition} valuesEnum={SpellTraditionEnum} value={tradition} onChange={setTradition}/>
+          <AppSelectFromEnum label={cn.tradition} valuesEnum={SpellTraditionEnum} value={tradition} onChange={setTradition}/>
         </Col>
         <Col sm={3} xs={6} className='mt-3'>
-          <AppSelectFromEnum label={content.spells.filter.castingTime} valuesEnum={SpellCastingTimeEnum} value={castingTime} onChange={setCastingTime}/>
+          <AppSelectFromEnum label={cn.castingTime} valuesEnum={SpellCastingTimeEnum} value={castingTime} onChange={setCastingTime}/>
         </Col>
         <Col sm={3} xs={6} className='mt-3'>
-          <AppSelectFromEnum label={content.spells.filter.defence} valuesEnum={SpellDefenseEnum} value={defense} onChange={setDefense}/>
+          <AppSelectFromEnum label={cn.defence} valuesEnum={SpellDefenseEnum} value={defense} onChange={setDefense}/>
         </Col>
         <Col sm={3} xs={6} className='mt-3'>
-          <AppSelectFromEnum label={content.spells.filter.duration} valuesEnum={SpellDurationEnum} value={duration} onChange={setDuration}/>
+          <AppSelectFromEnum label={cn.duration} valuesEnum={SpellDurationEnum} value={duration} onChange={setDuration}/>
         </Col>
       </Row>
       <Row>
         <Col className='mt-3'>
-          <AppTraitsSelector label={content.spells.filter.traits} traitGroups={SPELL_TRAITS} onChange={setTraits}/>
+          <AppTraitsSelector label={cn.traits} traitGroups={SPELL_TRAITS} onChange={setTraits}/>
         </Col>
       </Row>
     </div>

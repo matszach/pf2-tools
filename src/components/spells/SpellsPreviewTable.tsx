@@ -15,6 +15,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
   const [spellInModal, setSpellInModal] = useState<Spell | undefined>(undefined)
   const [sortParams, setSortParams] = useState<SpellQuerySortParameters>({})
   const [searchParams, setSearchParams] = useSearchParams()
+  const cn = content.spells.table
 
   const showModal = (spell: Spell) => {
     setSpellInModal(spell)
@@ -55,16 +56,16 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
       <thead>
         <tr>
           {[
-            ['Name', 'name', true],
-            ['Level', 'level', true],
-            ['Casting Time', 'castingTime', true],
-            ['Target', 'target', false],
-            ['Defense', 'defense', true],
-            ['Range', 'range', false],
-            ['Area', 'area', false],
-            ['Duration', 'duration', false],
-            ['Traditions', 'traditions', true],
-            ['Traits', 'traits']
+            [cn.name, 'name', true],
+            [cn.rank, 'rank', true],
+            [cn.castingTime, 'castingTime', true],
+            [cn.target, 'target', false],
+            [cn.defense, 'defense', true],
+            [cn.range, 'range', false],
+            [cn.area, 'area', false],
+            [cn.duration, 'duration', false],
+            [cn.traditions, 'traditions', true],
+            [cn.traits, 'traits']
           ].map(([header, field, sortable]) => (
             sortable ? (
               <th className={`${field} sortable`} key={`${field}`} onClick={() => toggleSort(field as string)}>
@@ -81,7 +82,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
       <tbody> 
         {spells.map((spell) => (
           <tr key={spell.key} onClick={() => showModal(spell)}>
-            <td>{spell.name}</td>
+            <td className='name'>{spell.name}</td>
             <td>{spell.level}</td>
             <td>{spell.castingTime}</td>
             <td>{Fmt.string(spell.target)}</td>

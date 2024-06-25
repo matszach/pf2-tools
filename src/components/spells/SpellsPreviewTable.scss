@@ -11,11 +11,11 @@
         }
       }
     }
-    th, td {
-      transition: width 0.5s ease; /* Smooth transition for width */
-    }
   }
   tbody tr {
     cursor: pointer;
+    td.name {
+      white-space: nowrap;
+    }
   }
 }

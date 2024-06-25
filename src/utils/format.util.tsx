@@ -45,7 +45,7 @@ export class Fmt {
     return content[key ?? ''] ?? defaultValue
   }
 
-  static array(content: string[], defaultValue: string = '-'): string {
+  static array(content: string[] = [], defaultValue: string = '-'): string {
     return content.join(', ') ?? defaultValue
   }
 }
