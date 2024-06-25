@@ -1,40 +1,18 @@
 
 .SpellsPreviewTable {
-  thead th {
-    &.sortable {
-      cursor: pointer;
-      white-space: nowrap;
-      svg {
-        margin-left: 5px;
-        margin-bottom: 2px;
+  thead {
+    th {   
+      &.sortable {
+        cursor: pointer;
+        white-space: nowrap;
+        svg {
+          margin-left: 5px;
+          margin-bottom: 2px;
+        }
       }
     }
-    &.name {
-      width: 16%;
-    }
-    &.level {
-      width: 5%;
-    }
-    &.castingTime {
-      width: 8%;
-    }
-    &.target {
-      width: 12%;
-    }
-    &.defense {
-      width: 11%;
-    }
-    &.range {
-      width: 11%;
-    }
-    &.area {
-      width: 12%;
-    }
-    &.duration {
-      width: 11%;
-    }
-    &.tradition {
-      width: 14%;
+    th, td {
+      transition: width 0.5s ease; /* Smooth transition for width */
     }
   }
   tbody tr {

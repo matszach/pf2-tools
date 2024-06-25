@@ -2,7 +2,7 @@ import { Accordion, Badge } from "react-bootstrap";
 import { TraitsGroups, TraitsSelection, TraitsToggleStateEnum } from "../../model/spell.model";
 import { useEffect, useState } from "react";
 import { nextIn } from "../../utils/calculation.util";
-import { capitalize } from "../../utils/format.util";
+import { Fmt } from "../../utils/format.util";
 
 export default function AppTraitsSelector(
   { label = '', traitGroups, onChange = () => {} }:
@@ -47,7 +47,7 @@ export default function AppTraitsSelector(
               {index > 0 && <hr key={`traits-hr-${index}`} className='m-1' />}
               {traitGroup.map(trait => (
                 <Badge bg={getTraitColor(trait)} key={trait} onClick={() => toggleTrait(trait)}>
-                  {capitalize(trait)}
+                  {Fmt.capitalize(trait)}
                 </Badge>
               ))}
             </div>

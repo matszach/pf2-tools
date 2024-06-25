@@ -1,5 +1,5 @@
 import { FloatingLabel, Form } from "react-bootstrap";
-import { parseNumber } from "../../utils/format.util";
+import { Fmt } from "../../utils/format.util";
 
 export default function AppNumberControl(
   { min, max, label = '', value = 0, onChange = () => {} }: 
@@ -9,7 +9,7 @@ export default function AppNumberControl(
     <FloatingLabel label={label}>
       <Form.Control type='number' 
         min={min} max={max}
-        onChange={e => onChange(parseNumber(e.target.value))} value={value}
+        onChange={e => onChange(Fmt.int(e.target.value))} value={value}
       />
     </FloatingLabel>
   )

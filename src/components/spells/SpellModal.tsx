@@ -2,9 +2,10 @@ import './SpellsView.scss'
 import { Badge, Button, Modal } from "react-bootstrap"
 import { Spell } from "../../model/spell.model"
 import parse from 'html-react-parser'
-import { areaStringValue, capitalize, defenseStringValue, durationStringValue } from '../../utils/format.util'
 import { useState } from 'react'
 import { isLocal } from '../../utils/env.utils'
+import { Fmt } from '../../utils/format.util'
+import { content } from '../../content/content'
 
 function SpellModal ({ spell, onHide }: { spell: Spell | undefined, onHide: () => void }) {
   const [useVTT, setUseVTT] = useState(false)
@@ -26,17 +27,17 @@ function SpellModal ({ spell, onHide }: { spell: Spell | undefined, onHide: () =
       <Modal.Body>
         {/* Data trabsformer will need   to edit out the vtt commands for this to fully work of course */}
         <div>{spell?.traits.map(trait => (
-          <Badge className='m-1' bg='secondary' key={trait}>{capitalize(trait)}</Badge>
+          <Badge className='m-1' bg='secondary' key={trait}>{Fmt.capitalize(trait)}</Badge>
         ))}</div>
         <hr/>
         {descRow('Traditions', spell?.traditions?.join(', '))}
         {/* TODO a function to retrn images for these */}
         {descRow('Casting time', spell?.castingTime)} 
         {descRow('Range', spell?.range)}
-        {descRow('Area', areaStringValue(spell?.area ?? {}, Infinity))}
+        {descRow('Area', Fmt.area(spell?.area))}
         {descRow('Target', spell?.target)}
-        {descRow('Defense', defenseStringValue(spell?.defense, ''))}
-        {descRow('Duration', durationStringValue(spell?.duration ?? {}, Infinity))}
+        {descRow('Defense', Fmt.enum(spell?.defense, content.enumMap.defense))}
+        {descRow('Duration', Fmt.duration(spell?.duration))}
         {descRow('Cost', spell?.cost)}
         {descRow('Requirements', spell?.requirements)}
         <hr/>

@@ -64,7 +64,7 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
             ['Area', 'area', false],
             ['Duration', 'duration', false],
             ['Traditions', 'traditions', true],
-            // ['Traits', 'traits']
+            ['Traits', 'traits']
           ].map(([header, field, sortable]) => (
             sortable ? (
               <th className={`${field} sortable`} key={`${field}`} onClick={() => toggleSort(field as string)}>
@@ -84,13 +84,13 @@ function SpellsPreviewTable({ spells, onSort }: { spells: Spell[], onSort: (sort
             <td>{spell.name}</td>
             <td>{spell.level}</td>
             <td>{spell.castingTime}</td>
-            <td>{Fmt.limit(spell.target)}</td>
+            <td>{Fmt.string(spell.target)}</td>
             <td>{Fmt.enum(spell.defense, content.enumMap.defense)}</td>
-            <td>{Fmt.limit(spell.range)}</td>
+            <td>{Fmt.string(spell.range)}</td>
             <td>{Fmt.area(spell.area)}</td>
             <td>{Fmt.duration(spell.duration)}</td>
-            <td>{spell.traditions.join(', ')}</td>
-            {/* <td>{spell.traits.join(', ')}</td> */}
+            <td>{Fmt.array(spell.traditions)}</td>
+            <td>{Fmt.array(spell.traits)}</td>
           </tr>
         ))}
       </tbody>

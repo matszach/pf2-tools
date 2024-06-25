@@ -1,5 +1,5 @@
 import { FloatingLabel, Form } from "react-bootstrap";
-import { capitalize } from "../../utils/format.util";
+import { Fmt } from "../../utils/format.util";
 
 export default function AppSelectFromEnum<T>(
   { label, valuesEnum, content, value, onChange }:
@@ -12,7 +12,7 @@ export default function AppSelectFromEnum<T>(
           const value = enumValue as string
           return (
             <option key={value} value={value}>
-              {content ? content[value] : capitalize(value)}
+              {content ? content[value] : Fmt.capitalize(value)}
             </option>
           )
         })}
