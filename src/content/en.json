@@ -13,7 +13,19 @@
       "loot": "Loot",
       "shop": "Shop"
     }
-  }, 
+  },
+  "spells": {
+    "filter": {
+      "name": "Name",
+      "minRank": "Min. Rank",
+      "maxRank": "Max. Rank",
+      "tradition": "Tradition",
+      "castingTime": "Casting Time",
+      "defence": "Defence",
+      "duration": "Duration",
+      "traits": "Traits"
+    }
+  },
   "enumMap": {
     "defense": {
       "ac": "AC",
