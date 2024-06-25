@@ -13,5 +13,19 @@
       "loot": "Loot",
       "shop": "Shop"
     }
+  }, 
+  "enumMap": {
+    "defense": {
+      "ac": "AC",
+      "reflex": "Reflex",
+      "reflex-basic": "Reflex, basic",
+      "reflex-dc": "Reflex DC",
+      "fortitude": "Fortitude",
+      "fortitude-basic": "Fortitude, basic",
+      "fortitude-dc": "Fortitude DC",
+      "will": "Will",
+      "will-basic": "Will, basic",
+      "will-dc": "Will DC"
+    }
   }
 }
