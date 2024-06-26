@@ -1,5 +1,5 @@
-import { SpellCastingTimeEnum, SpellDefenseEnum, SpellDurationEnum, SpellTraditionEnum } from "../../model/spell.model";
-import { TraitsSelection } from "../../model/traits.model";
+import { SpellCastingTimeEnum, SpellDefenseEnum, SpellDurationEnum, SpellTraditionEnum } from "./spell.model";
+import { TraitsSelection } from "./traits.model";
 
 export interface SpellQueryFilterParameters {
   name?: string;

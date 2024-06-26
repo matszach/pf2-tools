@@ -1,7 +1,7 @@
 import { SpellCastingTimeEnum, Spell, SpellDefenseEnum, SpellDurationEnum } from "../../model/spell.model";
 import { TraitsToggleStateEnum } from "../../model/traits.model";
 import { valuesExcept } from "../../utils/calculation.util";
-import { SpellQueryFilterParameters, SpellQuerySortParameters } from "./data-query.model";
+import { SpellQueryFilterParameters, SpellQuerySortParameters } from "../../model/data-query.model";
 
 export function spellQuery(
   { name, tradition, traits, level, castingTime, defense, duration }: SpellQueryFilterParameters, 

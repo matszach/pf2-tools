@@ -1,7 +1,7 @@
 import './SpellsFilterPanel.scss';
 import { useEffect, useState } from 'react';
 import { SpellCastingTimeEnum, SPELL_TRAITS, SpellDefenseEnum, SpellTraditionEnum, SpellDurationEnum } from '../../../model/spell.model';
-import { SpellQueryFilterParameters } from '../../../services/query/data-query.model';
+import { SpellQueryFilterParameters } from '../../../model/data-query.model';
 import { Col, Row } from 'react-bootstrap';
 import AppNumberControl from '../../controls/AppNumberControl';
 import AppTextControl from '../../controls/AppTextControl';

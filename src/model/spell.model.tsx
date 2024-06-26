@@ -21,6 +21,7 @@ export interface Spell {
   traits: string[];
   rarity: string;
   requirements: string;
+  heightenedLevels: number[]
 }
 
 export const SPELL_TRAITS: TraitsGroups = {

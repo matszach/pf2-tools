@@ -1,7 +1,7 @@
 import './SpellsPreviewTable.scss';
 import { Table } from "react-bootstrap";
 import { Spell } from "../../../model/spell.model";
-import { SpellQuerySortParameters } from "../../../services/query/data-query.model";
+import { SpellQuerySortParameters } from "../../../model/data-query.model";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa"; 
 import { useEffect, useState } from "react";
 import { useSearchParams } from 'react-router-dom';

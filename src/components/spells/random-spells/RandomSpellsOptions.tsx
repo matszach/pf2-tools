@@ -1,6 +1,6 @@
 import './RandomSpellsOptions.scss'
 import { useState } from "react"
-import { RandomSpellsOptionsParameters, RandomSpellQueryType } from "../../../services/query/data-query.model"
+import { RandomSpellsOptionsParameters, RandomSpellQueryType } from "../../../model/data-query.model"
 import { SpellTraditionEnum } from '../../../model/spell.model';
 import { Button, Col, Row } from 'react-bootstrap';
 import AppSelectFromEnum from '../../controls/AppSelectFromEnum';

@@ -6,7 +6,7 @@ import provider from '../../../services/provider';
 import AppPaginator from '../../app-paginator/AppPaginator';
 import { Page } from '../../app-paginator/page';
 import SpellsFilterPanel from './SpellsFilterPanel';
-import { SpellQueryFilterParameters, SpellQuerySortParameters } from '../../../services/query/data-query.model';
+import { SpellQueryFilterParameters, SpellQuerySortParameters } from '../../../model/data-query.model';
 import { spellQuery } from '../../../services/query/spell.query';
 import { PAGE_SIZE } from '../../../const/numbers.const';
 
