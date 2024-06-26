@@ -7,7 +7,7 @@ import AppPaginator from '../../app-paginator/AppPaginator';
 import { Page } from '../../app-paginator/page';
 import SpellsFilterPanel from './SpellsFilterPanel';
 import { SpellQueryFilterParameters, SpellQuerySortParameters } from '../../../model/data-query.model';
-import { spellQuery } from '../../../services/query/spell.query';
+import { tableSpellQuery } from '../../../services/query/spell.query';
 import { PAGE_SIZE } from '../../../const/numbers.const';
 
 function SpellsView() {
@@ -18,7 +18,7 @@ function SpellsView() {
   const [spells, setSpells] = useState<Spell[]>([])
 
   useEffect(() => {
-    provider.spellApi.fetchData().then(spellQuery(filterParams, sortParams)).then(setSpells)
+    provider.spellApi.fetchData().then(tableSpellQuery(filterParams, sortParams)).then(setSpells)
   }, [filterParams, sortParams])
 
   useEffect(() => {

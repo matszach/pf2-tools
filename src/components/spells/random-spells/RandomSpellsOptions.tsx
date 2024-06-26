@@ -11,7 +11,7 @@ export default function RandomSpellsOptions({ onGenerate }: { onGenerate: (optio
 
   const [queryType, setQueryType] = useState<RandomSpellQueryType>(RandomSpellQueryType.SPELLS)
   const [spellRank, setSpellRank] = useState<number>(1)
-  const [numberOfSpells, setNumberOfSpells] = useState<number | undefined>(1)
+  const [numberOfSpells, setNumberOfSpells] = useState<number | undefined>(5)
   const [tradition, setTradition] = useState<SpellTraditionEnum>(SpellTraditionEnum.ALL)
   const [characterLevel, setCharacterLevel] = useState<number>(1)
   

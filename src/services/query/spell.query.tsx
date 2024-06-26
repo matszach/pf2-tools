@@ -3,7 +3,7 @@ import { TraitsToggleStateEnum } from "../../model/traits.model";
 import { valuesExcept } from "../../utils/calculation.util";
 import { SpellQueryFilterParameters, SpellQuerySortParameters } from "../../model/data-query.model";
 
-export function spellQuery(
+export function tableSpellQuery(
   { name, tradition, traits, level, castingTime, defense, duration }: SpellQueryFilterParameters, 
   { field, direction = 1 }: SpellQuerySortParameters
 ): (spells: Spell[]) => Spell[] {
@@ -83,4 +83,29 @@ export function spellQuery(
       }
       return direction * (s1v < s2v ? -1 : 1)
     })
+}
+
+
+export function pick<T>(count: number = 1): (items: T[]) => T[] {
+  return (items: T[]) => {
+    if (count > items.length) {
+      return items
+    }
+    const pickedIndices: number[] = []
+    const result: T[] = []
+    while (result.length < count) {
+      const index = Math.floor(Math.random() * items.length)
+      if (!pickedIndices.includes(index)) {
+        result.push(items[index])
+        pickedIndices.push(index)
+      }
+    }
+    return result;
+  }
+}
+
+export function filter<T>(filterFn: (item: T) => boolean): (items: T[]) => T[] {
+  return (items: T[]) => { 
+    return items.filter(filterFn)
+  }
 }
