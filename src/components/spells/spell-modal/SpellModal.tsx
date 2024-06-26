@@ -37,8 +37,8 @@ function SpellModal ({ spell, onHide }: { spell: Spell | undefined, onHide: () =
         {row(cn.range, spell?.range)}
         {row(cn.area, Fmt.area(spell?.area, ''))}
         {row(cn.target, spell?.target)}
-        {row(cn.defense, Fmt.enum(spell?.defense, content.enumMap.defense))}
-        {row(cn.duration, Fmt.duration(spell?.duration))}
+        {row(cn.defense, Fmt.enum(spell?.defense, content.enumMap.defense, ''))}
+        {row(cn.duration, Fmt.duration(spell?.duration, ''))}
         {row(cn.cost, spell?.cost)}
         {row(cn.requirements, spell?.requirements)}
         <hr/>

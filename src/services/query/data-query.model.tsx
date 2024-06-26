@@ -18,3 +18,17 @@ export interface SpellQuerySortParameters {
   field?: string;
   direction?: number;
 }
+
+export interface RandomSpellsOptionsParameters {
+  queryType?: RandomSpellQueryType,
+  tradition?: SpellTraditionEnum;
+  characterLevel?: number;
+  spellRank?: number;
+  numberOfSpells?: number;
+}
+
+export enum RandomSpellQueryType {
+  SPELLS = 'spells',
+  SPELL_BOOK = 'spellBook',
+  SPELL_REPERTOIRE = 'spellRepertoire'
+}
