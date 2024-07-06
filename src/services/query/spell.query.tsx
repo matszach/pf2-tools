@@ -3,6 +3,9 @@ import { TraitsToggleStateEnum } from "../../model/traits.model";
 import { valuesExcept } from "../../utils/calculation.util";
 import { SpellQueryFilterParameters, SpellQuerySortParameters } from "../../model/data-query.model";
 
+/**
+ * @deprecated
+ */
 export function tableSpellQuery(
   { name, tradition, traits, level, castingTime, defense, duration }: SpellQueryFilterParameters, 
   { field, direction = 1 }: SpellQuerySortParameters

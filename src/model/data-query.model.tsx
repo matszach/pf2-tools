@@ -1,6 +1,9 @@
 import { SpellCastingTimeEnum, SpellDefenseEnum, SpellDurationEnum, SpellTraditionEnum } from "./spell.model";
 import { TraitsSelection } from "./traits.model";
 
+/**
+ * @deprecated
+ */
 export interface SpellQueryFilterParameters {
   name?: string;
   tradition?: SpellTraditionEnum;
@@ -14,6 +17,9 @@ export interface SpellQueryFilterParameters {
   defense?: SpellDefenseEnum;
 }
 
+/**
+ * @deprecated
+ */
 export interface SpellQuerySortParameters {
   field?: string;
   direction?: number;
