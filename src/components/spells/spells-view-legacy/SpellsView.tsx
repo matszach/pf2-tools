@@ -7,7 +7,7 @@ import AppPaginator from '../../app-paginator/AppPaginator';
 import { Page } from '../../app-paginator/page';
 import SpellsFilterPanel from './SpellsFilterPanel';
 import { SpellQueryFilterParameters, SpellQuerySortParameters } from '../../../model/data-query.model';
-import { tableSpellQuery } from '../../../services/query/spell.query';
+import { tableSpellQuery } from '../../../services/deprecated-query/spell.query';
 import { PAGE_SIZE } from '../../../const/numbers.const';
 
 function SpellsView() {

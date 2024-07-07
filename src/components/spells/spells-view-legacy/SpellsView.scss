@@ -1,5 +1,5 @@
-@import '../../../mixins/view.scss';
+@import '../../../mixins/page.scss';
 
 .SpellsView {
-  @include view();
+  @include page();
 }

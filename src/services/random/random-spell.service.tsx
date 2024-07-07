@@ -1,7 +1,7 @@
 import { RandomSpellsOptionsParameters } from "../../model/data-query.model";
 import { Spell } from "../../model/spell.model";
 import { SpellApi } from "../api/spell.api";
-import { filter, pick } from "../query/spell.query";
+import { filter, pick } from "../deprecated-query/spell.query";
 
 export class RandomSpellService {
 

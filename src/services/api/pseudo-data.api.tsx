@@ -1,3 +1,5 @@
+import { QueryFn } from "../../model/data-query.model";
+
 export class PseudoDataApi<T> {
 
   constructor(private readonly source: string) { }
@@ -15,6 +17,12 @@ export class PseudoDataApi<T> {
         })
       );
     }
+  }
+
+  public query(queryFns: QueryFn<T>[]): Promise<T[]> {
+    return this.fetchData().then(data => {
+      return queryFns.reduce((data, queryFn) => queryFn.apply(data), data);
+    });
   }
 
 }
