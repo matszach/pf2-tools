@@ -6,6 +6,7 @@ import { Spell } from "../../../model/spell.model"
 import provider from "../../../services/provider"
 import AppPaginator from "../../app-paginator/AppPaginator"
 import SpellsPreviewTable from "../spells-view-legacy/SpellsPreviewTable"
+import { SpellQueryFnFactory } from '../../../services/query/spell-query-fn.factory'
 
 export function SpellsPageComponent() {
 
@@ -13,7 +14,9 @@ export function SpellsPageComponent() {
   const [spells, setSpells] = useState<Spell[]>([])
 
   useEffect(() => {
-    provider.spellApi.fetchData().then(setSpells)
+    provider.spellApi.query(
+      // [SpellQueryFnFactory.byName('Fire')]
+    ).then(setSpells)
   }, [])
 
   useEffect(() => {

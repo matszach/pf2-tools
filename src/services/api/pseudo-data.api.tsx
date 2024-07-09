@@ -1,4 +1,4 @@
-import { QueryFn } from "../../model/data-query.model";
+import { QueryFn } from "../query/query.model";
 
 export class PseudoDataApi<T> {
 
@@ -19,7 +19,7 @@ export class PseudoDataApi<T> {
     }
   }
 
-  public query(queryFns: QueryFn<T>[]): Promise<T[]> {
+  public query(queryFns: QueryFn<T>[] = []): Promise<T[]> {
     return this.fetchData().then(data => {
       return queryFns.reduce((data, queryFn) => queryFn.apply(data), data);
     });
